@@ -1,0 +1,6 @@
+framework module LDZFCommon {
+  umbrella header "LDZFCommon-umbrella.h"
+
+  export *
+  module * { export * }
+}

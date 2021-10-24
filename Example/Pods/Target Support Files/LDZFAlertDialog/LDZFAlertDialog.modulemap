@@ -1,0 +1,6 @@
+framework module LDZFAlertDialog {
+  umbrella header "LDZFAlertDialog-umbrella.h"
+
+  export *
+  module * { export * }
+}

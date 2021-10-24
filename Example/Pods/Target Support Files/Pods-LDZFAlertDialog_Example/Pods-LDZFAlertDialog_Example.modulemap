@@ -1,0 +1,6 @@
+framework module Pods_LDZFAlertDialog_Example {
+  umbrella header "Pods-LDZFAlertDialog_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

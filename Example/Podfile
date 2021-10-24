@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'LDZFAlertDialog_Example' do
+  pod 'LDZFAlertDialog', :path => '../'
+  pod 'LDZFMobileFramework'
+  target 'LDZFAlertDialog_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

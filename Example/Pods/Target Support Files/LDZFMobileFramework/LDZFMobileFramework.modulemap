@@ -1,0 +1,6 @@
+framework module LDZFMobileFramework {
+  umbrella header "LDZFMobileFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}
