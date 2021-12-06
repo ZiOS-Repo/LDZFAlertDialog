@@ -7,7 +7,7 @@
 //
 
 #import <LDZFCustomPickerView/LDZFCustomPickerView.h>
-#import "LDZFCategories/LDZFCategories.h"
+#import <LDZFCategories/LDZFCategories.h>
 
 @interface AlertSingleChoiceDialogRowView : IUPickerCustomView
 

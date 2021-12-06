@@ -1,74 +1,5 @@
 PODS:
-  - DZNEmptyDataSet (1.8.1)
   - FDFullscreenPopGesture (1.1)
-  - JXCategoryKit (0.2.7):
-    - JXCategoryKit/CoreLocation (= 0.2.7)
-    - JXCategoryKit/Foundation (= 0.2.7)
-    - JXCategoryKit/QuartzCore (= 0.2.7)
-    - JXCategoryKit/UIKit (= 0.2.7)
-  - JXCategoryKit/CoreLocation (0.2.7)
-  - JXCategoryKit/Foundation (0.2.7):
-    - JXCategoryKit/Foundation/NSArray (= 0.2.7)
-    - JXCategoryKit/Foundation/NSBundle (= 0.2.7)
-    - JXCategoryKit/Foundation/NSData (= 0.2.7)
-    - JXCategoryKit/Foundation/NSDate (= 0.2.7)
-    - JXCategoryKit/Foundation/NSDictionary (= 0.2.7)
-    - JXCategoryKit/Foundation/NSError (= 0.2.7)
-    - JXCategoryKit/Foundation/NSFileManager (= 0.2.7)
-    - JXCategoryKit/Foundation/NSNotificationCenter (= 0.2.7)
-    - JXCategoryKit/Foundation/NSNull (= 0.2.7)
-    - JXCategoryKit/Foundation/NSObject (= 0.2.7)
-    - JXCategoryKit/Foundation/NSString (= 0.2.7)
-    - JXCategoryKit/Foundation/NSTimer (= 0.2.7)
-  - JXCategoryKit/Foundation/NSArray (0.2.7):
-    - JXCategoryKit/Foundation/NSObject
-  - JXCategoryKit/Foundation/NSBundle (0.2.7)
-  - JXCategoryKit/Foundation/NSData (0.2.7)
-  - JXCategoryKit/Foundation/NSDate (0.2.7)
-  - JXCategoryKit/Foundation/NSDictionary (0.2.7):
-    - JXCategoryKit/Foundation/NSObject
-  - JXCategoryKit/Foundation/NSError (0.2.7)
-  - JXCategoryKit/Foundation/NSFileManager (0.2.7)
-  - JXCategoryKit/Foundation/NSNotificationCenter (0.2.7)
-  - JXCategoryKit/Foundation/NSNull (0.2.7)
-  - JXCategoryKit/Foundation/NSObject (0.2.7)
-  - JXCategoryKit/Foundation/NSString (0.2.7):
-    - JXCategoryKit/Foundation/NSData
-    - JXCategoryKit/Foundation/NSObject
-  - JXCategoryKit/Foundation/NSTimer (0.2.7)
-  - JXCategoryKit/QuartzCore (0.2.7)
-  - JXCategoryKit/UIKit (0.2.7):
-    - JXCategoryKit/UIKit/UIApplication (= 0.2.7)
-    - JXCategoryKit/UIKit/UIButton (= 0.2.7)
-    - JXCategoryKit/UIKit/UIColor (= 0.2.7)
-    - JXCategoryKit/UIKit/UIControl (= 0.2.7)
-    - JXCategoryKit/UIKit/UIDevice (= 0.2.7)
-    - JXCategoryKit/UIKit/UIGestureRecognizer (= 0.2.7)
-    - JXCategoryKit/UIKit/UIImage (= 0.2.7)
-    - JXCategoryKit/UIKit/UIScrollView (= 0.2.7)
-    - JXCategoryKit/UIKit/UITabBarController (= 0.2.7)
-    - JXCategoryKit/UIKit/UITableView (= 0.2.7)
-    - JXCategoryKit/UIKit/UITableViewCell (= 0.2.7)
-    - JXCategoryKit/UIKit/UITextField (= 0.2.7)
-    - JXCategoryKit/UIKit/UIView (= 0.2.7)
-    - JXCategoryKit/UIKit/UIViewController (= 0.2.7)
-    - JXCategoryKit/UIKit/UIWindow (= 0.2.7)
-  - JXCategoryKit/UIKit/UIApplication (0.2.7)
-  - JXCategoryKit/UIKit/UIButton (0.2.7)
-  - JXCategoryKit/UIKit/UIColor (0.2.7)
-  - JXCategoryKit/UIKit/UIControl (0.2.7)
-  - JXCategoryKit/UIKit/UIDevice (0.2.7)
-  - JXCategoryKit/UIKit/UIGestureRecognizer (0.2.7)
-  - JXCategoryKit/UIKit/UIImage (0.2.7)
-  - JXCategoryKit/UIKit/UIScrollView (0.2.7)
-  - JXCategoryKit/UIKit/UITabBarController (0.2.7):
-    - JXCategoryKit/UIKit/UIImage
-  - JXCategoryKit/UIKit/UITableView (0.2.7)
-  - JXCategoryKit/UIKit/UITableViewCell (0.2.7)
-  - JXCategoryKit/UIKit/UITextField (0.2.7)
-  - JXCategoryKit/UIKit/UIView (0.2.7)
-  - JXCategoryKit/UIKit/UIViewController (0.2.7)
-  - JXCategoryKit/UIKit/UIWindow (0.2.7)
   - LDZFAlertDialog (0.1.0):
     - LDZFAlertDialog/BaseDialog (= 0.1.0)
     - LDZFAlertDialog/DateDialog (= 0.1.0)
@@ -85,26 +16,17 @@ PODS:
   - LDZFAlertDialog/SingleChoiceDialog (0.1.0):
     - LDZFAlertDialog/BaseDialog
     - LDZFCustomPickerView
-  - LDZFCategories (0.1.1):
-    - JXCategoryKit
-    - LDZFCategories/Foundation (= 0.1.1)
-    - LDZFCategories/QuartzCore (= 0.1.1)
-    - LDZFCategories/UIKit (= 0.1.1)
-    - LDZFCategories/UnSure (= 0.1.1)
-    - LDZFCommon
-  - LDZFCategories/Foundation (0.1.1):
-    - JXCategoryKit
-    - LDZFCommon
-  - LDZFCategories/QuartzCore (0.1.1):
-    - JXCategoryKit
-    - LDZFCommon
-  - LDZFCategories/UIKit (0.1.1):
-    - JXCategoryKit
-    - LDZFCommon
-  - LDZFCategories/UnSure (0.1.1):
-    - JXCategoryKit
-    - LDZFCommon
-  - LDZFCommon (0.1.0)
+  - LDZFCategories (0.1.9):
+    - LDZFCategories/Foundation (= 0.1.9)
+    - LDZFCategories/QuartzCore (= 0.1.9)
+    - LDZFCategories/UIKit (= 0.1.9)
+    - LDZFCategories/UnSure (= 0.1.9)
+  - LDZFCategories/Foundation (0.1.9)
+  - LDZFCategories/QuartzCore (0.1.9)
+  - LDZFCategories/UIKit (0.1.9)
+  - LDZFCategories/UnSure (0.1.9)
+  - LDZFCommon (0.1.6):
+    - QMUIKit/QMUICore
   - LDZFCustomPickerView (0.1.0)
   - LDZFGeneralTools (0.1.0):
     - LDZFGeneralTools/DateFormatter (= 0.1.0)
@@ -128,13 +50,17 @@ PODS:
   - LDZFGeneralTools/Permission (0.1.0)
   - LDZFGeneralTools/RegEx (0.1.0):
     - RegExCategories
-  - LDZFMobileFramework (0.1.0):
-    - DZNEmptyDataSet
+  - LDZFMobileFramework (0.1.10):
     - FDFullscreenPopGesture
     - LDZFCategories
-    - LDZFGeneralTools
+    - LDZFCommon
     - Masonry
   - Masonry (1.1.0)
+  - QMUIKit/QMUICore (4.1.3):
+    - QMUIKit/QMUILog
+    - QMUIKit/QMUIWeakObjectContainer
+  - QMUIKit/QMUILog (4.1.3)
+  - QMUIKit/QMUIWeakObjectContainer (4.1.3)
   - RegExCategories (1.0)
 
 DEPENDENCIES:
@@ -143,15 +69,14 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - DZNEmptyDataSet
     - FDFullscreenPopGesture
-    - JXCategoryKit
     - LDZFCategories
     - LDZFCommon
     - LDZFCustomPickerView
     - LDZFGeneralTools
     - LDZFMobileFramework
     - Masonry
+    - QMUIKit
     - RegExCategories
 
 EXTERNAL SOURCES:
@@ -159,16 +84,15 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  JXCategoryKit: 5f0e2524d4169ae7e2858de5e4e6a350a22c25fd
-  LDZFAlertDialog: a4da251b15f5cca1f96d4a0afcd6493bedc92dbd
-  LDZFCategories: 9efb066dbaf8918c62419662e8d6e1b1e58ae485
-  LDZFCommon: a0587af17c138e915041fd1166cda269fa041640
+  LDZFAlertDialog: 822f21be7c1786dd4c0b1281aa146440ed2f4d61
+  LDZFCategories: 90f436b5f4f9ff52058d3cbb74e35ecffeaf2965
+  LDZFCommon: 03f15ab654548586b48b4ba7312c2da0f94afd4b
   LDZFCustomPickerView: 22ab502672c4e065201fde4b98a0616f0e1060de
   LDZFGeneralTools: a1f71a1aafe4cfa51b34ed0c06f3b047f4132f31
-  LDZFMobileFramework: c19a5175802e39281f968601ad932fe30423cfe9
+  LDZFMobileFramework: aa4044bdc8bb6b8b9aa9ebb0cc1aadaf74180cf6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  QMUIKit: 1063a99f90aedd6e2dd65026ce0df46e6785e67b
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
 
 PODFILE CHECKSUM: 57c1a3e52e43945a32b0397888eda860b74f27ed

@@ -3,17 +3,6 @@
 
 @implementation UIButton (Init)
 
-#pragma mark - TitleLabel Alignment
-
-- (void)titleLabelHorizontalAlignment:(UIControlContentHorizontalAlignment)horizontalAlignment
-                    verticalAlignment:(UIControlContentVerticalAlignment)verticalAlignment
-                    contentEdgeInsets:(UIEdgeInsets)contentEdgeInsets {
-    
-    self.contentHorizontalAlignment = horizontalAlignment;
-    self.contentVerticalAlignment   = verticalAlignment;
-    self.contentEdgeInsets          = contentEdgeInsets;
-}
-
 #pragma mark - Target.action
 
 - (instancetype)addTarget:(id)target action:(SEL)action {

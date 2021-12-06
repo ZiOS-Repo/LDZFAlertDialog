@@ -89,6 +89,6 @@
                       normalImage:(UIImage *)normalImage
                    highlightImage:(UIImage *)highlightImage
                     disabledImage:(UIImage *)disabledImage;
-;
+
 
 @end

@@ -28,23 +28,4 @@
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
-
-- (void)removeAllSubviews {
-    //[self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    while (self.subviews.count) {
-        [self.subviews.lastObject removeFromSuperview];
-    }
-}
-
-
-- (UIViewController *)viewController {
-    for (UIView *view = self; view; view = view.superview) {
-        UIResponder *nextResponder = [view nextResponder];
-        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)nextResponder;
-        }
-    }
-    return nil;
-}
-
 @end

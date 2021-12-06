@@ -12,7 +12,7 @@
 #import "TNTComponentCell.h"
 
 @interface IUViewController ()<AlertBaseDialogDelegate>
-
+@property(nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation IUViewController

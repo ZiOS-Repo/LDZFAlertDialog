@@ -8,11 +8,11 @@
 #ifndef LDZFMobileFramework_h
 #define LDZFMobileFramework_h
 
-#import "IUScreen.h"
-#import "IUTabViewScreen.h"
-#import "IUCollectionViewScreen.h"
+#import <LDZFMobileFramework/IUScreen.h>
+#import <LDZFMobileFramework/IUTabViewScreen.h>
+#import <LDZFMobileFramework/IUCollectionViewScreen.h>
+#import <LDZFMobileFramework/IUUITabBarController.h>
+#import <LDZFMobileFramework/IUUINavigationController.h>
 
-#import "IUUITabBarController.h"
-#import "IUUINavigationController.h"
-
+#import <LDZFMobileFramework/LDZFDebugDefines.h>
 #endif /* LDZFMobileFramework_h */

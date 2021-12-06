@@ -8,37 +8,31 @@
 #ifndef LDZFCategories_h
 #define LDZFCategories_h
 
-#import <JXCategoryKit/JXCategoryKit.h>
-
-
-
-//CALayer
+//QuartzCore
 #import "CALayer+SetRect.h"
 #import "CALayer+Animation.h"
-//CAShapeLayer
-#import "CAShapeLayer+CornerRadius.h"
-//NSBundle
+#import "CAShapeLayer+Solo.h"
+
+//Foundation
 #import "NSBundle+AssociatedBundle.h"
-//NSString
 #import "NSString+Categorys.h"
-//UIAlertController
-#import "UIAlertController+Constructor.h"
-//UIButton
+
+//UIKit
 #import "UIButton+Categories.h"
-//UIImage
-#import "UIImage+IUColor.h"
-#import "UIImage+IURotate.h"
-#import "UIImage+IUSubImage.h"
-//UILabel
-#import "UILabel+SizeToFit.h"
-//UITextField
-#import "UITextField+UsefulMethod.h"
-//UIView
+#import "UIDevice+SoloGeneral.h"
+#import "UIImage+SoloClip.h"
+#import "UIImage+SoloEffect.h"
+#import "UIImage+SoloGeneral.h"
+#import "UIImage+SoloGenerate.h"
+#import "UIImage+SoloQRCode.h"
+#import "UILabel+Solo.h"
+#import "UIScrollView+Solo.h"
 #import "UIView+Categorys.h"
-//UIViewController
-#import "UIViewController+Status.h"
+#import "UIViewController+SoloAlert.h"
+#import "UIViewController+SoloGeneral.h"
 
-
-#import "PHAsset+IU.h"
+//UnSure
+#import "PHAsset+Solo.h"
+#import "NSObject+Solo.h"
 
 #endif /* LDZFCategories_h */

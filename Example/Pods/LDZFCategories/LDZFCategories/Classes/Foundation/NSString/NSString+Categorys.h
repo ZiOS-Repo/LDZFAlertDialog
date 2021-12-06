@@ -8,9 +8,7 @@
 #ifndef NSString_Categorys_h
 #define NSString_Categorys_h
 
-#import "NSAttributedString+LabelWidthAndHeight.h"
-#import "NSString+HexUnicode.h"
-#import "NSString+LabelWidthAndHeight.h"
-#import "NSString+Range.h"
+#import "NSAttributedString+Solo.h"
+#import "NSString+Solo.h"
 
 #endif /* NSString_Categorys_h */

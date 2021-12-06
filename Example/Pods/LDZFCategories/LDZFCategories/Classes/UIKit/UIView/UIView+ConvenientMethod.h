@@ -1,6 +1,6 @@
 
 #import <UIKit/UIKit.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface UIView (ConvenientMethod)
 
 /**
@@ -33,17 +33,5 @@
  @param radius Shadow radius
  */
 - (void)setLayerShadow:(nullable UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
-
-/**
- Remove all subviews.
- 
- @warning Never call this method inside your view's drawRect: method.
- */
-- (void)removeAllSubviews;
-
-/**
- Returns the view's view controller (may be nil).
- */
-@property (nullable, nonatomic, readonly) UIViewController *viewController;
-
 @end
+NS_ASSUME_NONNULL_END

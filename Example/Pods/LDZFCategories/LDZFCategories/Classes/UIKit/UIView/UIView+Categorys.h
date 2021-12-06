@@ -13,11 +13,9 @@
 #import "UIView+ConvertRect.h"
 #import "UIView+DebugFrame.h"
 #import "UIView+GlowView.h"
-#import "UIView+ScreensShot.h"
 #import "UIView+SetRect.h"
 #import "UIView+Shake.h"
-#import "UIView+UserInteraction.h"
-
-#import "UIScrollView+Scroll.h"
+#import "UIView+Solo.h"
+#import "UIView+SoloGesture.h"
 
 #endif /* UIView_Categorys_h */

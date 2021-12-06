@@ -1,5 +1,5 @@
 
-#import "LDZFAlertDialog/AlertBaseDialog.h"
+#import <LDZFAlertDialog/AlertBaseDialog.h>
 #import "AlertMultiChoiceDialogCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
