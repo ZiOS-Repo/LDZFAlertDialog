@@ -10,24 +10,22 @@
 
 
 //日期转换
-#import "IUDateFormatter.h"
+#import "LdzfDateFormatter.h"
 //DeepLinkModel
-#import "IUDeepLinkModel.h"
-//设备信息
-#import "IUDeviceInfo.h"
+#import "LdzfDeepLinkModel.h"
 //文件管理
-#import "IUFileManager.h"
+#import "LdzfFileManager.h"
 //IrregularElementsCreator
-#import "IUIrregularElementsCreator.h"
+#import "LdzfIrregularElementsCreator.h"
 //IndexPath
-#import "NSArray+IUIndexPath.h"
+#import "NSArray+LdzfIndexPath.h"
 //NumberFormatter
-#import "IUNumberFormatter.h"
+#import "LdzfNumberFormatter.h"
 //RegEx
-#import "IURegEx.h"
+#import "LdzfRegEx.h"
 //越狱检测
-#import "IUJailBreakChecker.h"
+#import "LdzfJailBreakChecker.h"
 //权限判断
-#import "IUGetPermission.h"
+#import "LdzfGetPermission.h"
 
 #endif /* LDZFGeneralTools_h */

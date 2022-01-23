@@ -1,5 +1,6 @@
 
 #import <UIKit/UIKit.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import <LDZFGeneralTools/LDZFGeneralTools.h>
 #import <Masonry/Masonry.h>
@@ -35,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIImage *)imageFromCustomBundle:(NSString *)name;
 
-
+- (CGFloat)containerViewHeight;
 #pragma mark - 视图容器
 @property(nonatomic, strong) UIView *backgroundView;
 @property(nonatomic, strong) UIView *containerView;

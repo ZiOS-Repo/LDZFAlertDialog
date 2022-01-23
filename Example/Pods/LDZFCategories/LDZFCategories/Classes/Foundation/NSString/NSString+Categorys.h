@@ -8,7 +8,7 @@
 #ifndef NSString_Categorys_h
 #define NSString_Categorys_h
 
-#import "NSAttributedString+Solo.h"
-#import "NSString+Solo.h"
+#import "NSAttributedString+LDZF.h"
+#import "NSString+LDZF.h"
 
 #endif /* NSString_Categorys_h */

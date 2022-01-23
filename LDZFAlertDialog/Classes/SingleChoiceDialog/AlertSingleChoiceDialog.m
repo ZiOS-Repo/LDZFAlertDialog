@@ -1,13 +1,13 @@
 
 
 #import "AlertSingleChoiceDialog.h"
-#import <LDZFCustomPickerView/LDZFCustomPickerView.h>
+#import <LDZFUIKit/LdzfCustomPickerView.h>
 
 #import "AlertSingleChoiceDialogRowView.h"
 
-@interface AlertSingleChoiceDialog ()<IUCustomPickerViewDelegate>
+@interface AlertSingleChoiceDialog ()<LdzfPickerViewDelegate>
 {
-    IUCustomPickerView *_pickerView;
+    LdzfPickerView *_pickerView;
 }
 @property(nonatomic, assign) BOOL isAnimating;
 @end
@@ -26,14 +26,8 @@ static NSString *identifier = @"cell";
     if (self.isAnimating) {
         
     } else {
-        if (IUDeviceInfo.isPortrait) {
-            //竖屏
-            self.containerView.frame = CGRectMake(0,self.view.height - 300, self.view.width, 300.0);
+        self.containerView.frame = CGRectMake(0,self.view.height - [self containerViewHeight], self.view.width, [self containerViewHeight]);
 
-        } else {
-            //横屏
-            self.containerView.frame = CGRectMake(0,self.view.height - 250, self.view.width, 250.0);
-        }
     }
 }
 
@@ -55,10 +49,10 @@ static NSString *identifier = @"cell";
 
 - (void)showContainerView {
     self.isAnimating = YES;
-    self.containerView.frame = CGRectMake(0,self.view.height, self.view.width, (IUDeviceInfo.isPortrait ? 300.0:250.0));
+    self.containerView.frame = CGRectMake(0,self.view.height, self.view.width, [self containerViewHeight]);
     [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.backgroundView.alpha = 1.0f ;
-        self.containerView.y = self.view.height - (IUDeviceInfo.isPortrait ? 300.0:250.0);
+        self.containerView.y = self.view.height - [self containerViewHeight];
         
     } completion:^(BOOL finished) {
         self.isAnimating = NO;
@@ -137,7 +131,7 @@ static NSString *identifier = @"cell";
     }];
 #pragma mark - 其他
     // 创建pickerView
-    _pickerView = [[IUCustomPickerView alloc] initWithFrame:CGRectMake(0, 44.f, self.view.width, 0) delegate:self];
+    _pickerView = [[LdzfPickerView alloc] initWithFrame:CGRectMake(0, 44.f, self.view.width, 0) delegate:self];
     [self.containerView addSubview:_pickerView];
     [_pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.containerView);
@@ -148,13 +142,13 @@ static NSString *identifier = @"cell";
 
 - (void)setupInitialData {
     // 获取rows
-    NSMutableArray <IUPickerViewRow *> *rows = [NSMutableArray array];
+    NSMutableArray <LdzfPickerViewRowModel *> *rows = [NSMutableArray array];
     [self.showDatas enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [rows addObject:[IUPickerViewRow pickerViewRowWithViewClass:[AlertSingleChoiceDialogRowView class] data:obj]];
+        [rows addObject:[LdzfPickerViewRowModel pickerViewRowWithViewClass:[AlertSingleChoiceDialogRowView class] data:obj]];
     }];
     
-    IUPickerViewComponent   *component  = [IUPickerViewComponent pickerViewComponentWithRows:rows componentWidth:self.view.width];
-    IUPickerViewDataAdapter *adpater    = [IUPickerViewDataAdapter pickerViewDataAdapterWithComponents:@[component] rowHeight:40.f];
+    LdzfPickerViewComponent   *component  = [LdzfPickerViewComponent pickerViewComponentWithRows:rows componentWidth:self.view.width];
+    LdzfPickerViewDataAdapter *adpater    = [LdzfPickerViewDataAdapter pickerViewDataAdapterWithComponents:@[component] rowHeight:40.f];
     _pickerView.pickerViewDataAdapter = adpater;
     
     // 如果有初始选定元素,则直接定位到初始选定元素的地方
@@ -174,11 +168,11 @@ static NSString *identifier = @"cell";
     }
 }
 
-#pragma mark - IUCustomPickerViewDelegate
-- (void)customPickerView:(IUCustomPickerView *)pickerView didSelectedRows:(NSArray<NSNumber *> *)rows selectedDatas:(NSArray<id> *)datas
-{
-
+#pragma mark - LdzfPickerViewDelegate
+- (void)customPickerView:(LdzfPickerView *)pickerView didSelectedRows:(NSArray<NSNumber *> *)rows selectedDatas:(NSArray<id> *)datas {
+    
 }
+
 
 
 

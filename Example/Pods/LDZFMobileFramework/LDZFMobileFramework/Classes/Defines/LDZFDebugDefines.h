@@ -1,12 +1,12 @@
 //
-//  LDZFDebugDefines.h
+//  LdzfDebugDefines.h
 //  Pods
 //
 //  Created by zhuyuhui on 2021/10/30.
 //
 
-#ifndef LDZFDebugDefines_h
-#define LDZFDebugDefines_h
+#ifndef LdzfDebugDefines_h
+#define LdzfDebugDefines_h
 
 #define BUTTON_WITH_ACTION(_title, _sel)  \
 {   \
@@ -23,12 +23,12 @@
 #define CREATE_UI(_addButton)   \
 {   \
     UIScrollView *scrollView = [[UIScrollView alloc] init];  \
-    [self.iuView addSubview:scrollView];  \
+    [self.ldzfView addSubview:scrollView];  \
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {    \
-        make.top.mas_equalTo(self.iuView.mas_top);  \
-        make.bottom.mas_equalTo(self.iuView.mas_bottom);    \
-        make.left.mas_equalTo(self.iuView.mas_left);  \
-        make.right.mas_equalTo(self.iuView.mas_right);    \
+        make.top.mas_equalTo(self.ldzfView.mas_top);  \
+        make.bottom.mas_equalTo(self.ldzfView.mas_bottom);    \
+        make.left.mas_equalTo(self.ldzfView.mas_left);  \
+        make.right.mas_equalTo(self.ldzfView.mas_right);    \
     }]; \
     CGFloat hMargin = 0.05 * self.view.width, vMargin = 15; \
     CGFloat width = self.view.width - 2 * hMargin, height = 44; \
@@ -41,4 +41,4 @@
     }   \
 }
 
-#endif /* LDZFDebugDefines_h */
+#endif /* LdzfDebugDefines_h */

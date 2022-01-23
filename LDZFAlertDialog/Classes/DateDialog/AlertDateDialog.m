@@ -18,18 +18,9 @@
     if (self.isAnimating) {
         
     } else {
-        if (IUDeviceInfo.isPortrait) {
-            //竖屏
-            self.containerView.frame = CGRectMake(0,self.view.height - 300, self.view.width, 300.0);
-
-        } else {
-            //横屏
-            self.containerView.frame = CGRectMake(0,self.view.height - 250, self.view.width, 250.0);
-        }
+        self.containerView.frame = CGRectMake(0,self.view.height - [self containerViewHeight], self.view.width, [self containerViewHeight]);
     }
 }
-
-
 #pragma mark -
 #pragma mark - clickEvent
 
@@ -53,10 +44,10 @@
 
 - (void)showContainerView {
     self.isAnimating = YES;
-    self.containerView.frame = CGRectMake(0,self.view.height, self.view.width, (IUDeviceInfo.isPortrait ? 300.0:250.0));
+    self.containerView.frame = CGRectMake(0,self.view.height, self.view.width,  [self containerViewHeight]);
     [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.backgroundView.alpha = 1.0f ;
-        self.containerView.y = self.view.height - (IUDeviceInfo.isPortrait ? 300.0:250.0);
+        self.containerView.y = self.view.height -  [self containerViewHeight];
         
     } completion:^(BOOL finished) {
         self.isAnimating = NO;

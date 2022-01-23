@@ -140,6 +140,9 @@
     
 }
 
+- (CGFloat)containerViewHeight {
+    return IS_DEVICE_LANDSCAPE ? 250:300;
+}
 
 
 #pragma mark - getter setter

@@ -8,6 +8,6 @@
 #import <LDZFMobileFramework/LDZFMobileFramework.h>
 @import UIKit;
 
-@interface IUViewController : IUTabViewScreen
+@interface IUViewController : LdzfTabViewScreen
 
 @end

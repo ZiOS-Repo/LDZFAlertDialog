@@ -26,7 +26,7 @@
                          disabledStateColor:(UIColor *)disabledStateColor;
 
 /**
- *  Set the button's solod backgroundColor.
+ *  Set the button's ldzfd backgroundColor.
  *
  *  @param normalStateColor      Normal state color.
  *  @param highlightedStateColor Highlighted state color.

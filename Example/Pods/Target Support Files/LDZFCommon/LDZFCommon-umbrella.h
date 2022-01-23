@@ -10,8 +10,8 @@
 #endif
 #endif
 
-#import "IUCommonlyDefine.h"
 #import "LDZFCommon.h"
+#import "LdzfCommonlyDefine.h"
 
 FOUNDATION_EXPORT double LDZFCommonVersionNumber;
 FOUNDATION_EXPORT const unsigned char LDZFCommonVersionString[];
