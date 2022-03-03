@@ -1,6 +1,0 @@
-framework module LDZFUIKit {
-  umbrella header "LDZFUIKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -8,7 +8,12 @@
 #ifndef NSString_Categorys_h
 #define NSString_Categorys_h
 
-#import "NSAttributedString+LDZF.h"
-#import "NSString+LDZF.h"
+#import "NSAttributedString+LdzfSize.h"
+#import "NSString+LdzfSize.h"
+
+#import "NSString+LdzfExtension.h"
+#import "NSString+LdzfHandle.h"
+#import "NSString+LdzfSize.h"
+#import "NSString+LdzfValid.h"
 
 #endif /* NSString_Categorys_h */

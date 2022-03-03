@@ -6,43 +6,20 @@
 //
 
 #import "LdzfAppBar.h"
-#import <Masonry/Masonry.h>
-#import <LDZFCommon/LDZFCommon.h>
-#import <LDZFCategories/LDZFCategories.h>
+#import "LDZFMobileFrameworkThirdHeader.h"
 @interface LdzfAppBar ()
 
 @end
 
-
 @implementation LdzfAppBar
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        self.bgView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        self.bgView.userInteractionEnabled = YES;;
-        
-        self.navigationBar = [[UIView alloc] initWithFrame:CGRectZero];
-        self.navigationBar.backgroundColor = [UIColor clearColor];
-        
-        self.leftContainers = [[UIView alloc] initWithFrame:CGRectZero];
-        self.leftContainers.backgroundColor = [UIColor clearColor];
-
-        self.rightContainers = [[UIView alloc] initWithFrame:CGRectZero];
-        self.rightContainers.backgroundColor = [UIColor clearColor];
-        
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.titleLabel.text = @"";
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.titleLabel.numberOfLines = 2;
-        self.divideLine = [[UIView alloc] init];
-
-        [self addSubview:self.bgView];
+        [self addSubview:self.background];
         [self addSubview:self.navigationBar];
         [self addSubview:self.divideLine];
-        
+                
         [self.navigationBar addSubview:self.leftContainers];
         [self.navigationBar addSubview:self.rightContainers];
         [self.navigationBar addSubview:self.titleLabel];
@@ -50,55 +27,109 @@
             make.centerX.centerY.equalTo(self.navigationBar);
             make.width.mas_lessThanOrEqualTo(200);
         }];
+        [self.divideLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self);
+            make.height.mas_equalTo(PixelOne);
+        }];
+        [self.leftContainers mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.bottom.equalTo(self.navigationBar);
+            make.width.mas_equalTo(SCREEN_WIDTH/2);
+        }];
+        [self.rightContainers mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.top.bottom.equalTo(self.navigationBar);
+            make.width.mas_equalTo(SCREEN_WIDTH/2);
+        }];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.bgView.frame = self.bounds;
-    self.navigationBar.frame = CGRectMake(0, self.height - NavigationBarHeight, self.width, NavigationBarHeight);
-    self.divideLine.frame = CGRectMake(0, self.height - PixelOne, self.width, PixelOne);
-    self.leftContainers.frame = CGRectMake(0, 0, self.navigationBar.width/2, NavigationBarHeight);
-    self.rightContainers.frame = CGRectMake(self.navigationBar.width/2, 0, self.navigationBar.width/2, NavigationBarHeight);
-    ///左侧
-    UIView *lastItem_L;
-    for (UIView *item in self.leftContainers.subviews) {
-        item.centerY = self.leftContainers.height/2;
-        if (@available(iOS 11.0, *)) {
-            item.left = lastItem_L ? CGRectGetMaxX(lastItem_L.frame) + 10 : self.safeAreaInsets.left;
-        } else {
-            item.left = lastItem_L ? CGRectGetMaxX(lastItem_L.frame) + 10 : 10;
-        }
-        lastItem_L = item;
-    }
-    ///右侧
-    UIView *lastItem_R;
-    for (UIView *item in self.rightContainers.subviews.reverseObjectEnumerator) {
-        item.centerY = self.rightContainers.height/2;
-        if (@available(iOS 11.0, *)) {
-            item.right = lastItem_R ? CGRectGetMinX(lastItem_R.frame) - 10 : self.rightContainers.width - self.safeAreaInsets.right;
-        } else {
-            item.right = lastItem_R ? CGRectGetMinX(lastItem_R.frame) - 10 : self.rightContainers.width - 10;
-        }
-        lastItem_R = item;
-    }
 }
 
 - (void)setLeftItems:(NSArray<UIView *> *)items {
     [self.leftContainers.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    ///左侧
+    UIView *lastItem_L;
     for (UIView *item in items) {
         [self.leftContainers addSubview:item];
+        [item mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.leftContainers.mas_centerY);
+            make.size.mas_equalTo(item.viewSize);
+            if (lastItem_L) {
+                make.left.equalTo(lastItem_L.mas_right).offset(5);
+            } else {
+                make.left.equalTo(self.leftContainers).offset(5);
+            }
+        }];
+        lastItem_L = item;
     }
-    [self setNeedsLayout];
 }
 
 - (void)setRightItems:(NSArray<UIView *> *)items {
     [self.rightContainers.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    UIView *lastItem_L;
     for (UIView *item in items) {
         [self.rightContainers addSubview:item];
+        [item mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.rightContainers.mas_centerY);
+            make.size.mas_equalTo(item.viewSize);
+            if (lastItem_L) {
+                make.right.equalTo(lastItem_L.mas_left).offset(-5);
+            } else {
+                make.right.equalTo(self.rightContainers).offset(-5);
+            }
+        }];
+        lastItem_L = item;
     }
-    [self setNeedsLayout];
+}
+#pragma mark - getter setter
+- (UIImageView *)background {
+    if (!_background) {
+        _background = [[UIImageView alloc] initWithFrame:self.bounds];
+        _background.userInteractionEnabled = YES;;
+    }
+    return _background;
 }
 
+- (UIView *)navigationBar {
+    if (!_navigationBar) {
+        _navigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - NavigationBarHeight, SCREEN_WIDTH, NavigationBarHeight)];
+        _navigationBar.backgroundColor = [UIColor clearColor];
+    }
+    return _navigationBar;
+}
+
+- (UIView *)leftContainers {
+    if (!_leftContainers) {
+        _leftContainers = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, NavigationBarHeight)];
+        _leftContainers.backgroundColor = [UIColor clearColor];
+    }
+    return _leftContainers;
+}
+
+- (UIView *)rightContainers {
+    if (!_rightContainers) {
+        _rightContainers = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, 0, SCREEN_WIDTH/2, NavigationBarHeight)];
+        _rightContainers.backgroundColor = [UIColor clearColor];
+    }
+    return _rightContainers;
+}
+
+- (UIView *)divideLine {
+    if (!_divideLine) {
+        _divideLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - PixelOne, SCREEN_WIDTH, PixelOne)];
+    }
+    return _divideLine;
+}
+
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.numberOfLines = 2;
+        _titleLabel.text = @"";
+    }
+    return _titleLabel;
+}
 @end

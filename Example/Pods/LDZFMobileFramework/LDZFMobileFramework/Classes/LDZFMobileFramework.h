@@ -14,5 +14,9 @@
 #import <LDZFMobileFramework/LdzfUITabBarController.h>
 #import <LDZFMobileFramework/LdzfUINavigationController.h>
 
-#import <LDZFMobileFramework/LdzfDebugDefines.h>
+
+#import <LDZFMobileFramework/LdzfListTabView.h>
+#import <LDZFMobileFramework/LdzfListCollectionView.h>
+#import <LDZFMobileFramework/LDZFMobileFrameworkDebugDefines.h>
+
 #endif /* LDZFMobileFramework_h */

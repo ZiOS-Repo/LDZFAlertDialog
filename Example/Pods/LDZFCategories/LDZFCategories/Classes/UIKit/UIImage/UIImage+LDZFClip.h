@@ -1,5 +1,5 @@
 //
-//  UIImage+LDZFClip.h
+//  UIImage+LdzfClip.h
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (LDZFClip)
+@interface UIImage (LdzfClip)
 
 /// 裁剪图片中的一块区域
 /// @param clipRect 裁剪区域

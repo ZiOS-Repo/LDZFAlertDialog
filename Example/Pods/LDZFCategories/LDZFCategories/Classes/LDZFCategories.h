@@ -11,32 +11,30 @@
 //QuartzCore
 #import "CALayer+SetRect.h"
 #import "CALayer+Animation.h"
-#import "CAShapeLayer+LDZF.h"
+#import "CAShapeLayer+LdzfGeneral.h"
 
 //Foundation
 #import "NSString+Categorys.h"
-#import "NSBundle+LDZFPodBundle.h"
-#import "NSArray+LDZFSafe.h"
-#import "NSArray+LDZFGeneral.h"
-#import "NSMutableArray+LDZFSafe.h"
-#import "NSMutableArray+LDZFGeneral.h"
+#import "NSArray+Categorys.h"
+#import "NSDictionary+Categorys.h"
+#import "NSBundle+LdzfPodBundle.h"
 
 //UIKit
-#import "UIButton+Categories.h"
-#import "UIDevice+LDZFGeneral.h"
-#import "UIImage+LDZFClip.h"
-#import "UIImage+LDZFEffect.h"
-#import "UIImage+LDZFGeneral.h"
-#import "UIImage+LDZFGenerate.h"
-#import "UIImage+LDZFQRCode.h"
-#import "UILabel+LDZF.h"
-#import "UIScrollView+LDZF.h"
 #import "UIView+Categorys.h"
-#import "UIViewController+LDZFAlert.h"
-#import "UIViewController+LDZFGeneral.h"
+#import "UIImage+Categorys.h"
+#import "UIColor+Categorys.h"
+#import "UIButton+Categories.h"
+
+#import "UIDevice+LdzfGeneral.h"
+#import "UILabel+LdzfGeneral.h"
+#import "UIScrollView+LdzfGeneral.h"
+#import "UIViewController+LdzfAlert.h"
+#import "UIViewController+LdzfGeneral.h"
 
 //UnSure
-#import "PHAsset+LDZF.h"
-#import "NSObject+LDZF.h"
+#import "PHAsset+LdzfGeneral.h"
+#import "NSObject+LdzfGeneral.h"
+#import "NSDate+LdzfGeneral.h"
 
 #endif /* LDZFCategories_h */
+

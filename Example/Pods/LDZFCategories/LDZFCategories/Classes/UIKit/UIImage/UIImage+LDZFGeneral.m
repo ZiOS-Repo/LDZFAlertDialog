@@ -1,13 +1,13 @@
 //
-//  UIImage+LDZFGeneral.m
+//  UIImage+LdzfGeneral.m
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIImage+LDZFGeneral.h"
+#import "UIImage+LdzfGeneral.h"
 
-@implementation UIImage (LDZFGeneral)
+@implementation UIImage (LdzfGeneral)
 
 - (BOOL)ldzf_hasAlphaChannel
 {

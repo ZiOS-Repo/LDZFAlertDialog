@@ -1,6 +1,0 @@
-framework module LDZFEasing {
-  umbrella header "LDZFEasing-umbrella.h"
-
-  export *
-  module * { export * }
-}

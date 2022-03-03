@@ -1,13 +1,13 @@
 //
-//  UIViewController+LDZFAlert.m
+//  UIViewController+LdzfAlert.m
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIViewController+LDZFAlert.h"
+#import "UIViewController+LdzfAlert.h"
 
-@implementation UIViewController (LDZFAlert)
+@implementation UIViewController (LdzfAlert)
 
 #pragma mark - public
 - (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock

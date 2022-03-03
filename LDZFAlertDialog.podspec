@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LDZFAlertDialog'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of LDZFAlertDialog.'
 
 # This description is used to generate tags and improve search results.
@@ -41,7 +41,10 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.public_header_files = 'LDZFAlertDialog/**/LDZFAlertDialog.h'
   s.source_files = 'LDZFAlertDialog/**/LDZFAlertDialog.h'
-
+  s.resource_bundles = {
+    'LDZFAlertDialog' => ['LDZFAlertDialog/Assets/*'],
+    'LDZFAlertDialogExt' => ['LDZFAlertDialog/AssetsExt/*']
+  }
     
   s.subspec 'BaseDialog' do |ss|
     ss.source_files = 'LDZFAlertDialog/**/BaseDialog/*.{h,m}'
@@ -59,7 +62,7 @@ TODO: Add long description of the pod here.
   s.subspec 'SingleChoiceDialog' do |ss|
     ss.source_files = 'LDZFAlertDialog/**/SingleChoiceDialog/*.{h,m}'
     ss.dependency 'LDZFAlertDialog/BaseDialog'
-    ss.dependency 'LDZFUIKit'
+    ss.dependency 'LDZFPickerView'
   end
   
   s.subspec 'MultiChoiceDialog' do |ss|
@@ -69,7 +72,5 @@ TODO: Add long description of the pod here.
   
 
   
-  s.resource_bundles = {
-    'LDZFAlertDialog' => ['LDZFAlertDialog/Assets/*.png']
-  }
+
 end

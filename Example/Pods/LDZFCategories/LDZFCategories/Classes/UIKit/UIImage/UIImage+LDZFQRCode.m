@@ -1,13 +1,13 @@
 //
-//  UIImage+LDZFQRCode.m
+//  UIImage+LdzfQRCode.m
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIImage+LDZFQRCode.h"
+#import "UIImage+LdzfQRCode.h"
 
-@implementation UIImage (LDZFQRCode)
+@implementation UIImage (LdzfQRCode)
 
 + (UIImage *)ldzf_qrHUDImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel
 {

@@ -1,5 +1,5 @@
 //
-//  UIImage+LDZFEffect.h
+//  UIImage+LdzfEffect.h
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (LDZFEffect)
+@interface UIImage (LdzfEffect)
 
 /// 使用CoreImage技术使图片模糊
 /// @param blurNum 模糊数值 0~100 （默认100）

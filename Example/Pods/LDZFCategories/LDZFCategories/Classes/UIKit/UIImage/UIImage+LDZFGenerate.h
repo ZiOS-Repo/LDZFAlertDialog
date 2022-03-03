@@ -1,5 +1,5 @@
 //
-//  UIImage+LDZFGenerate.h
+//  UIImage+LdzfGenerate.h
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -8,14 +8,14 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef NS_ENUM(NSInteger, LDZFTriangleDirection) { // 生成三角图片方向
-    LDZFTriangleDirection_Down,
-    LDZFTriangleDirection_Left,
-    LDZFTriangleDirection_Right,
-    LDZFTriangleDirection_Up
+typedef NS_ENUM(NSInteger, LdzfTriangleDirection) { // 生成三角图片方向
+    LdzfTriangleDirection_Down,
+    LdzfTriangleDirection_Left,
+    LdzfTriangleDirection_Right,
+    LdzfTriangleDirection_Up
 };
 
-@interface UIImage (LDZFGenerate)
+@interface UIImage (LdzfGenerate)
 
 /**
  生成带圆角的颜色图片
@@ -56,7 +56,7 @@ endPoint:(CGPoint)endP;
 /// @param size 尺寸
 /// @param color 颜色
 /// @param direction 三角方向
-+ (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LDZFTriangleDirection)direction;
++ (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LdzfTriangleDirection)direction;
 
 /// 从苹果表情符号创建图像
 /// @param emoji 表情符号

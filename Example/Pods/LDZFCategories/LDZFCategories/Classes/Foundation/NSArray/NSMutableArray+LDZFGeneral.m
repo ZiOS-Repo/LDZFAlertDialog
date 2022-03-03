@@ -1,7 +1,7 @@
 
-#import "NSMutableArray+LDZFGeneral.h"
+#import "NSMutableArray+LdzfGeneral.h"
 
-@implementation NSMutableArray (LDZFGeneral)
+@implementation NSMutableArray (LdzfGeneral)
 
 - (void)ldzf_removeFirstObject
 { 

@@ -15,11 +15,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createTableView];
-    self.enableFooterRefresh = YES;
-    self.enableHeaderRefresh = YES;
 }
 
+- (void)ldzfInitSubviews {
+    [super ldzfInitSubviews];
+    [self createTableView];
+    self.enableFooterRefresh = NO;
+    self.enableHeaderRefresh = NO;
+}
 
 - (void)createTableView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -63,7 +66,7 @@
     if (enableFooterRefresh) {
         // 上拉刷新
         kWeakSelf
-        self.recylerView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.recylerView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             kStrongSelf
             [strongSelf footerRefreshAction];
         }];
@@ -117,7 +120,7 @@
     }else{
         self.automaticallyAdjustsScrollViewInsets=NO;
     }
-    [recylerView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [recylerView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     return recylerView;
 }
 
@@ -140,7 +143,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     return cell;
 }
 

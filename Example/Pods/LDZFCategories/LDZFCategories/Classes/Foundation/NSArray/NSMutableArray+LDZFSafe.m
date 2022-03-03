@@ -1,8 +1,8 @@
 
 
-#import "NSMutableArray+LDZFSafe.h"
+#import "NSMutableArray+LdzfSafe.h"
 
-@implementation NSMutableArray (LDZFSafe)
+@implementation NSMutableArray (LdzfSafe)
  
 -(void)ldzf_addObj:(nullable id)i{
     if (i!=nil) {

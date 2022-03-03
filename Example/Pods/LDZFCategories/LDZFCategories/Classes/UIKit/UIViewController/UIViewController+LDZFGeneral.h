@@ -1,5 +1,5 @@
 //
-//  UIViewController+LDZFGeneral.h
+//  UIViewController+LdzfGeneral.h
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIViewController (LDZFGeneral)
+@interface UIViewController (LdzfGeneral)
 /** 获取和自身处于同一个UINavigationController里的上一个UIViewController */
 @property(nullable, nonatomic, weak, readonly) UIViewController *ldzf_previousViewController;
 

@@ -1,14 +1,14 @@
 //
-//  UIImage+LDZFGenerate.m
+//  UIImage+LdzfGenerate.m
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIImage+LDZFGenerate.h"
+#import "UIImage+LdzfGenerate.h"
 #import <CoreText/CoreText.h>
 
-@implementation UIImage (LDZFGenerate)
+@implementation UIImage (LdzfGenerate)
 
 + (UIImage *)ldzf_cornerRadiusImageWithColor:(UIColor *)tintColor targetSize:(CGSize)targetSize corners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius backgroundColor:(UIColor *)backgroundColor
 {
@@ -80,7 +80,7 @@ endPoint:(CGPoint)endP
     return image;
 }
 
-+ (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LDZFTriangleDirection)direction
++ (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LdzfTriangleDirection)direction
 {
     size = CGSizeMake(size.width*[UIScreen mainScreen].scale, size.height*[UIScreen mainScreen].scale);
     
@@ -89,19 +89,19 @@ endPoint:(CGPoint)endP
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGPoint sPoints[3];//坐标点
-    if (direction == LDZFTriangleDirection_Down) {
+    if (direction == LdzfTriangleDirection_Down) {
         sPoints[0] =CGPointMake(0, 0);//坐标1
         sPoints[1] =CGPointMake(size.width, 0);//坐标2
         sPoints[2] =CGPointMake(size.width/2, size.height);//坐标3
-    } else if (direction == LDZFTriangleDirection_Up) {
+    } else if (direction == LdzfTriangleDirection_Up) {
         sPoints[0] =CGPointMake(size.width/2, 0);//坐标1
         sPoints[1] =CGPointMake(0, size.height);//坐标2
         sPoints[2] =CGPointMake(size.width, size.height);//坐标3
-    } else if (direction == LDZFTriangleDirection_Left) {
+    } else if (direction == LdzfTriangleDirection_Left) {
         sPoints[0] =CGPointMake(size.width, 0);//坐标1
         sPoints[1] =CGPointMake(0, size.height/2);//坐标2
         sPoints[2] =CGPointMake(size.width, size.height);//坐标3
-    } else if (direction == LDZFTriangleDirection_Right) {
+    } else if (direction == LdzfTriangleDirection_Right) {
         sPoints[0] =CGPointMake(0, 0);//坐标1
         sPoints[1] =CGPointMake(0, size.height);//坐标2
         sPoints[2] =CGPointMake(size.width, size.height/2);//坐标3

@@ -1,11 +1,11 @@
 //
-//  UIDevice+LDZFGeneral.m
+//  UIDevice+LdzfGeneral.m
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIDevice+LDZFGeneral.h"
+#import "UIDevice+LdzfGeneral.h"
 #import <sys/utsname.h>
 
 // idfa
@@ -15,7 +15,7 @@
 #import <sys/sysctl.h>
 #import <mach/mach.h>
 
-@implementation UIDevice (LDZFGeneral)
+@implementation UIDevice (LdzfGeneral)
 
 + (NSString *)ldzf_getDeviceUserName
 {

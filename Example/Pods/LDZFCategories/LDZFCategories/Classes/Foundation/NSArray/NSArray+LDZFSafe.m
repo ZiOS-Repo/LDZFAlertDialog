@@ -1,8 +1,8 @@
 
 
-#import "NSArray+LDZFSafe.h"
+#import "NSArray+LdzfSafe.h"
 
-@implementation NSArray (LDZFSafe)
+@implementation NSArray (LdzfSafe)
 - (nullable id)ldzf_objectWithIndex:(NSUInteger)index{
     if (index <self.count) {
         return self[index];

@@ -1,34 +1,33 @@
 PODS:
   - FDFullscreenPopGesture (1.1)
-  - LDZFAlertDialog (0.1.1):
-    - LDZFAlertDialog/BaseDialog (= 0.1.1)
-    - LDZFAlertDialog/DateDialog (= 0.1.1)
-    - LDZFAlertDialog/MultiChoiceDialog (= 0.1.1)
-    - LDZFAlertDialog/SingleChoiceDialog (= 0.1.1)
-  - LDZFAlertDialog/BaseDialog (0.1.1):
+  - LDZFAlertDialog (0.1.2):
+    - LDZFAlertDialog/BaseDialog (= 0.1.2)
+    - LDZFAlertDialog/DateDialog (= 0.1.2)
+    - LDZFAlertDialog/MultiChoiceDialog (= 0.1.2)
+    - LDZFAlertDialog/SingleChoiceDialog (= 0.1.2)
+  - LDZFAlertDialog/BaseDialog (0.1.2):
     - LDZFCategories
     - LDZFCommon
     - LDZFGeneralTools
     - Masonry
-  - LDZFAlertDialog/DateDialog (0.1.1):
+  - LDZFAlertDialog/DateDialog (0.1.2):
     - LDZFAlertDialog/BaseDialog
-  - LDZFAlertDialog/MultiChoiceDialog (0.1.1):
+  - LDZFAlertDialog/MultiChoiceDialog (0.1.2):
     - LDZFAlertDialog/BaseDialog
-  - LDZFAlertDialog/SingleChoiceDialog (0.1.1):
+  - LDZFAlertDialog/SingleChoiceDialog (0.1.2):
     - LDZFAlertDialog/BaseDialog
-    - LDZFUIKit
-  - LDZFCategories (0.1.13):
-    - LDZFCategories/Foundation (= 0.1.13)
-    - LDZFCategories/QuartzCore (= 0.1.13)
-    - LDZFCategories/UIKit (= 0.1.13)
-    - LDZFCategories/UnSure (= 0.1.13)
-  - LDZFCategories/Foundation (0.1.13)
-  - LDZFCategories/QuartzCore (0.1.13)
-  - LDZFCategories/UIKit (0.1.13)
-  - LDZFCategories/UnSure (0.1.13)
-  - LDZFCommon (0.1.8):
+    - LDZFPickerView
+  - LDZFCategories (0.1.21):
+    - LDZFCategories/Foundation (= 0.1.21)
+    - LDZFCategories/QuartzCore (= 0.1.21)
+    - LDZFCategories/UIKit (= 0.1.21)
+    - LDZFCategories/UnSure (= 0.1.21)
+  - LDZFCategories/Foundation (0.1.21)
+  - LDZFCategories/QuartzCore (0.1.21)
+  - LDZFCategories/UIKit (0.1.21)
+  - LDZFCategories/UnSure (0.1.21)
+  - LDZFCommon (0.1.10):
     - QMUIKit/QMUICore
-  - LDZFEasing (0.1.1)
   - LDZFGeneralTools (0.1.2):
     - LDZFGeneralTools/DateFormatter (= 0.1.2)
     - LDZFGeneralTools/DeepLinkModel (= 0.1.2)
@@ -49,37 +48,13 @@ PODS:
   - LDZFGeneralTools/Permission (0.1.2)
   - LDZFGeneralTools/RegEx (0.1.2):
     - RegExCategories
-  - LDZFMobileFramework (0.1.13):
+  - LDZFMobileFramework (0.1.20):
     - FDFullscreenPopGesture
     - LDZFCategories
     - LDZFCommon
     - Masonry
     - MJRefresh
-  - LDZFUIKit (0.1.6):
-    - LDZFUIKit/LdzfBadgeView (= 0.1.6)
-    - LDZFUIKit/LdzfCardView (= 0.1.6)
-    - LDZFUIKit/LdzfCircleView (= 0.1.6)
-    - LDZFUIKit/LdzfCustomPickerView (= 0.1.6)
-    - LDZFUIKit/LdzfDialogView (= 0.1.6)
-    - LDZFUIKit/LdzfGridView (= 0.1.6)
-    - LDZFUIKit/LdzfImageView (= 0.1.6)
-    - LDZFUIKit/LdzfLabel (= 0.1.6)
-    - LDZFUIKit/LdzfRotateView (= 0.1.6)
-  - LDZFUIKit/LdzfBadgeView (0.1.6):
-    - LDZFCategories
-  - LDZFUIKit/LdzfCardView (0.1.6)
-  - LDZFUIKit/LdzfCircleView (0.1.6):
-    - LDZFEasing
-  - LDZFUIKit/LdzfCustomPickerView (0.1.6):
-    - LDZFCategories
-  - LDZFUIKit/LdzfDialogView (0.1.6):
-    - LDZFCategories
-  - LDZFUIKit/LdzfGridView (0.1.6)
-  - LDZFUIKit/LdzfImageView (0.1.6):
-    - SDWebImage
-  - LDZFUIKit/LdzfLabel (0.1.6):
-    - LDZFCategories
-  - LDZFUIKit/LdzfRotateView (0.1.6)
+  - LDZFPickerView (0.1.0)
   - Masonry (1.1.0)
   - MJRefresh (3.7.5)
   - QMUIKit/QMUICore (4.1.3):
@@ -88,28 +63,23 @@ PODS:
   - QMUIKit/QMUILog (4.1.3)
   - QMUIKit/QMUIWeakObjectContainer (4.1.3)
   - RegExCategories (1.0)
-  - SDWebImage (5.12.2):
-    - SDWebImage/Core (= 5.12.2)
-  - SDWebImage/Core (5.12.2)
 
 DEPENDENCIES:
   - LDZFAlertDialog (from `../`)
   - LDZFMobileFramework
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - FDFullscreenPopGesture
     - LDZFCategories
     - LDZFCommon
-    - LDZFEasing
     - LDZFGeneralTools
     - LDZFMobileFramework
-    - LDZFUIKit
+    - LDZFPickerView
     - Masonry
     - MJRefresh
     - QMUIKit
     - RegExCategories
-    - SDWebImage
 
 EXTERNAL SOURCES:
   LDZFAlertDialog:
@@ -117,19 +87,17 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  LDZFAlertDialog: a1896e6abdf584da5ece6c59744a0fdc506507d6
-  LDZFCategories: 4d942fb35b3e27359932b4719f5b735b8605e09e
-  LDZFCommon: 8f442db40857e130cb7b0c225132ff65b00cc36b
-  LDZFEasing: e87fabb51467150f10a8a9913024a52379fe0521
+  LDZFAlertDialog: a7df103d7863367b8fe5658e171e3dd732debef0
+  LDZFCategories: 4cc4a5c7c8565cd3642267506c32bfb05ad67d06
+  LDZFCommon: 75fcad1f16ebc1944f3f6ce45f0d5b9308af7129
   LDZFGeneralTools: 005b7c8272a1c596793860ee6a46cd3910877690
-  LDZFMobileFramework: 2eb66d39ab52c04a1d0fdb0d544c9cce04dfd8d1
-  LDZFUIKit: 9182b8056e3feac39ef9806bf601b91290c75d21
+  LDZFMobileFramework: 0a5e61240edda0990171d97902b5c719861a15d8
+  LDZFPickerView: 81a4c57fb6f596a0a9d38cd3aefb635ae5ac68ad
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   QMUIKit: 1063a99f90aedd6e2dd65026ce0df46e6785e67b
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
-  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
 
-PODFILE CHECKSUM: 57c1a3e52e43945a32b0397888eda860b74f27ed
+PODFILE CHECKSUM: 525b887433d40d94020ae61a2c4fed7a51aa2dc9
 
 COCOAPODS: 1.11.2

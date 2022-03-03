@@ -1,13 +1,11 @@
 
 
 #import "AlertSingleChoiceDialog.h"
-#import <LDZFUIKit/LdzfCustomPickerView.h>
-
 #import "AlertSingleChoiceDialogRowView.h"
 
 @interface AlertSingleChoiceDialog ()<LdzfPickerViewDelegate>
 {
-    LdzfPickerView *_pickerView;
+    LdzfCustomPickerView *_pickerView;
 }
 @property(nonatomic, assign) BOOL isAnimating;
 @end
@@ -131,7 +129,7 @@ static NSString *identifier = @"cell";
     }];
 #pragma mark - 其他
     // 创建pickerView
-    _pickerView = [[LdzfPickerView alloc] initWithFrame:CGRectMake(0, 44.f, self.view.width, 0) delegate:self];
+    _pickerView = [[LdzfCustomPickerView alloc] initWithFrame:CGRectMake(0, 44.f, self.view.width, 0) delegate:self];
     [self.containerView addSubview:_pickerView];
     [_pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.containerView);
@@ -153,12 +151,9 @@ static NSString *identifier = @"cell";
     
     // 如果有初始选定元素,则直接定位到初始选定元素的地方
     if (self.selectedItem && [self.selectedItem isKindOfClass:[NSAttributedString class]]) {
-        
         __block NSInteger index = 0;
         [self.showDatas enumerateObjectsUsingBlock:^(NSAttributedString *string, NSUInteger idx, BOOL * _Nonnull stop) {
-            
             if ([string isEqualToAttributedString:self.selectedItem]) {
-                
                 index = idx;
                 *stop = YES;
             }
@@ -169,7 +164,7 @@ static NSString *identifier = @"cell";
 }
 
 #pragma mark - LdzfPickerViewDelegate
-- (void)customPickerView:(LdzfPickerView *)pickerView didSelectedRows:(NSArray<NSNumber *> *)rows selectedDatas:(NSArray<id> *)datas {
+- (void)customPickerView:(LdzfCustomPickerView *)pickerView didSelectedRows:(NSArray<NSNumber *> *)rows selectedDatas:(NSArray<id> *)datas {
     
 }
 

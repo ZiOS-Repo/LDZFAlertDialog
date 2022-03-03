@@ -1,5 +1,5 @@
 //
-//  UIViewController+LDZFAlert.h
+//  UIViewController+LdzfAlert.h
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -18,7 +18,7 @@ typedef void(^LDZFAlertClickIndexBlock)(NSInteger clickNumber);
  */
 typedef void(^LDZFAlertCancleBlock)(void);
 
-@interface UIViewController (LDZFAlert)
+@interface UIViewController (LdzfAlert)
 
 #pragma mark - Alert
 /// Alert系统提示

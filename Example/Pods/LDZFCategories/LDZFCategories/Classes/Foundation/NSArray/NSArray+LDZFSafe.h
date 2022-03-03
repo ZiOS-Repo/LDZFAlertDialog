@@ -4,7 +4,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSArray (LDZFSafe)
+@interface NSArray (LdzfSafe)
 - (nullable id)ldzf_objectWithIndex:(NSUInteger)index;
 
 - (nullable NSString*)ldzf_stringWithIndex:(NSUInteger)index;

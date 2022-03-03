@@ -1,13 +1,13 @@
 //
-//  UIImage+LDZFClip.m
+//  UIImage+LdzfClip.m
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIImage+LDZFClip.h"
+#import "UIImage+LdzfClip.h"
 
-@implementation UIImage (LDZFClip)
+@implementation UIImage (LdzfClip)
 
 - (UIImage *)ldzf_imageClipRect:(CGRect)clipRect
 {

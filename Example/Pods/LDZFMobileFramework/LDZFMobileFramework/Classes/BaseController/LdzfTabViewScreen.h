@@ -6,7 +6,6 @@
 //
 
 #import "LdzfBaseScreen.h"
-#import <MJRefresh/MJRefresh.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LdzfTabViewScreen : LdzfBaseScreen<UITableViewDelegate, UITableViewDataSource>

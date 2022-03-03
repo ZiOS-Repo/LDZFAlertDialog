@@ -3,7 +3,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSMutableArray (LDZFGeneral)
+@interface NSMutableArray (LdzfGeneral)
  
 /// 删除数组中索引值最低的对象。
 - (void)ldzf_removeFirstObject;

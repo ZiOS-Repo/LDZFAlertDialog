@@ -1,6 +1,6 @@
 {
   "name": "LDZFAlertDialog",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "A short description of LDZFAlertDialog.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/ZiOS-Repo/LDZFAlertDialog",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/ZiOS-Repo/LDZFAlertDialog.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "9.0"
@@ -22,7 +22,10 @@
   "source_files": "LDZFAlertDialog/**/LDZFAlertDialog.h",
   "resource_bundles": {
     "LDZFAlertDialog": [
-      "LDZFAlertDialog/Assets/*.png"
+      "LDZFAlertDialog/Assets/*"
+    ],
+    "LDZFAlertDialogExt": [
+      "LDZFAlertDialog/AssetsExt/*"
     ]
   },
   "subspecs": [
@@ -60,7 +63,7 @@
         "LDZFAlertDialog/BaseDialog": [
 
         ],
-        "LDZFUIKit": [
+        "LDZFPickerView": [
 
         ]
       }

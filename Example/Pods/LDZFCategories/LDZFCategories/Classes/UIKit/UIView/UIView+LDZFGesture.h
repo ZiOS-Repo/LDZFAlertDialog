@@ -1,5 +1,5 @@
 //
-//  UIView+LDZFGesture.h
+//  UIView+LdzfGesture.h
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (LDZFGesture)
+@interface UIView (LdzfGesture)
 
 /**
  添加Tap手势

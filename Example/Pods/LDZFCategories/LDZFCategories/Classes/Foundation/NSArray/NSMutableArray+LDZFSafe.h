@@ -3,7 +3,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSMutableArray (LDZFSafe)
+@interface NSMutableArray (LdzfSafe)
 -(void)ldzf_addObj:(nullable id)i;
 
 -(void)ldzf_addString:(nullable NSString*)i;

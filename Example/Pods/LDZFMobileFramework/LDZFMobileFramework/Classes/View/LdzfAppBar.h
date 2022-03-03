@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 @interface LdzfAppBar : UIView
 /// 背景图
-@property(nonatomic, strong) UIImageView *bgView;
+@property(nonatomic, strong) UIImageView *background;
 /// 导航条
 @property(nonatomic, strong) UIView *navigationBar;
 /// 左侧

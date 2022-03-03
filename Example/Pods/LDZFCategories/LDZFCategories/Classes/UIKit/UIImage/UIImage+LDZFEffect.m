@@ -1,14 +1,14 @@
 //
-//  UIImage+LDZFEffect.m
+//  UIImage+LdzfEffect.m
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIImage+LDZFEffect.h"
+#import "UIImage+LdzfEffect.h"
 #import <Accelerate/Accelerate.h>
 
-@implementation UIImage (LDZFEffect)
+@implementation UIImage (LdzfEffect)
 
 - (UIImage *)ldzf_blurImageWithCoreImageBlurNumber:(CGFloat)blurNum
 {

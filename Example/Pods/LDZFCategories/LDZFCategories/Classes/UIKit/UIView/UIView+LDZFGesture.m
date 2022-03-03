@@ -1,13 +1,13 @@
 //
-//  UIView+LDZFGesture.m
+//  UIView+LdzfGesture.m
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIView+LDZFGesture.h"
+#import "UIView+LdzfGesture.h"
 
-@implementation UIView (LDZFGesture)
+@implementation UIView (LdzfGesture)
 
 // 添加Tap手势
 - (void)ldzf_addTapGestureRecognizerWithTarget:(id)target action:(SEL)action {

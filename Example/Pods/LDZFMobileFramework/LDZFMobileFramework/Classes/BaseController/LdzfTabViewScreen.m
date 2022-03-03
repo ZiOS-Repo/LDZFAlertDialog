@@ -6,6 +6,8 @@
 //
 
 #import "LdzfTabViewScreen.h"
+#import "LdzfTableView.h"
+
 @interface LdzfTabViewScreen ()
 @end
 
@@ -14,9 +16,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)ldzfInitSubviews {
+    [super ldzfInitSubviews];
     [self createTableViewWithStyle:UITableViewStylePlain];
-    self.enableFooterRefresh = YES;
-    self.enableHeaderRefresh = YES;
+    self.enableFooterRefresh = NO;
+    self.enableHeaderRefresh = NO;
 }
 
 
@@ -25,13 +31,13 @@
 }
 
 - (void)createTableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style {
-    [self createTableView:UITableView.class withFrame:frame style:style];
+    [self createTableView:LdzfTableView.class withFrame:frame style:style];
 }
 
 - (void)createTableView:(Class)viewClass withFrame:(CGRect)frame style:(UITableViewStyle)style {
     [self.recylerView removeFromSuperview];
     self.recylerView = nil;
-    self.recylerView = [self preferredRecylerView:UITableView.class withFrame:frame style:style];
+    self.recylerView = [self preferredRecylerView:viewClass withFrame:frame style:style];
     [self setEnableFooterRefresh:self.enableFooterRefresh];
     [self setEnableHeaderRefresh:self.enableHeaderRefresh];
     [self.ldzfView addSubview:self.recylerView];
@@ -61,7 +67,7 @@
     if (enableFooterRefresh) {
         // 上拉刷新
         kWeakSelf
-        self.recylerView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.recylerView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             kStrongSelf
             [strongSelf footerRefreshAction];
         }];
@@ -104,8 +110,6 @@
 }
 
 
-
-
 #pragma mark - getter
 - (UITableView *)preferredRecylerView:(Class)viewClass withFrame:(CGRect)frame style:(UITableViewStyle)style {
     UITableView *recylerView = [[viewClass alloc] initWithFrame:frame style:style];
@@ -115,15 +119,6 @@
     recylerView.showsHorizontalScrollIndicator = NO;
     recylerView.delegate = self;
     recylerView.dataSource = self;
-    if (@available(iOS 11.0, *)) {
-        recylerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        recylerView.estimatedRowHeight = 0;
-        recylerView.estimatedSectionHeaderHeight = 0;
-        recylerView.estimatedSectionFooterHeight = 0;
-    }else{
-        self.automaticallyAdjustsScrollViewInsets=NO;
-    }
-    [recylerView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     return recylerView;
 }
 
@@ -137,7 +132,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    static NSString *identifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
     return cell;
 }
 

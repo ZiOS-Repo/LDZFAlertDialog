@@ -7,14 +7,15 @@
 
 #import "LdzfBaseScreen.h"
 @interface LdzfBaseScreen ()
-/**
- *    @brief    自定义导航条
- */
+/// 自定义导航条
 @property(nonatomic, strong, readwrite) LdzfAppBar *appBar;
-/**
- *    @brief    内容视图【层级在自定义导航条下边】
- */
+/// 内容视图【层级在自定义导航条下边】
 @property(nonatomic, strong, readwrite) UIView *ldzfView;
+/// 返回按钮
+@property(nonatomic, strong, readwrite) UIButton *backBtn;
+
+/// 电池栏样式
+@property(nonatomic, assign) UIStatusBarStyle statusBarStyle;
 @end
 
 @implementation LdzfBaseScreen
@@ -68,9 +69,8 @@
 #pragma mark - LdzfBaseScreenProtocol
 #pragma mark - init
 - (void)ldzfSetUp {
-    self.hideAppBar = NO;
-    self.appBarBgColor = [UIColor whiteColor];
     self.fd_prefersNavigationBarHidden = YES;
+    self.statusBarStyle = UIStatusBarStyleLightContent;
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -78,7 +78,7 @@
 - (void)ldzfInitSubviews {
     [self.view addSubview:self.ldzfView];
     [self.view addSubview:self.appBar];
-    [self.view bringSubviewToFront:self.appBar];
+    [self configAppBarAppearance];
 }
 
 - (void)ldzfSetUpNavigationItems {
@@ -93,8 +93,16 @@
 }
 
 - (void)ldzfSetUpToolbarItems {
-    
+
 }
+
+- (void)configAppBarAppearance {
+    [self resetNavTitle:self.title];
+    [self resetNavHidden:NO];
+    [self resetNavBackgroundColor:[UIColor whiteColor]];
+    [self resetNavBackItemImage:[LdzfMobileFrameworkUtil imageNamed:@"navigation_back"]];
+}
+
 #pragma mark - 点击事件
 - (void)ldzfClickBackItem{
     if (self.presentingViewController && self.navigationController.viewControllers.count == 1) {
@@ -105,12 +113,24 @@
 }
 
 #pragma mark - Useful Method
-- (void)statusBarIsLightContentStyle:(BOOL)boolValue{
-    if (self.isLightContentStyle == boolValue) {
-        return;
-    }
-    self.isLightContentStyle = boolValue;
+- (void)resetStatusBarStyle:(UIStatusBarStyle)style;{
+    self.statusBarStyle = style;
     [self setNeedsStatusBarAppearanceUpdate];
+}
+- (void)resetNavHidden:(BOOL)hidden;{
+    self.appBar.hidden = hidden;
+}
+- (void)resetNavTitle:(NSString *)title;{
+    self.appBar.titleLabel.text = title;
+}
+- (void)resetNavBackgroundColor:(UIColor *)color;{
+    self.appBar.background.backgroundColor = color;
+}
+- (void)resetNavBackgroundImg:(UIImage *)img;{
+    self.appBar.background.image = img;
+}
+- (void)resetNavBackItemImage:(UIImage *)img;{
+    [self.backBtn setImage:img forState:UIControlStateNormal];
 }
 
 #pragma mark - getter & sertter
@@ -135,42 +155,10 @@
 - (UIButton *)backBtn{
     if (!_backBtn) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, NavigationBarHeight, NavigationBarHeight)];
-        [btn setImage:[self getBackItemImage] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(ldzfClickBackItem) forControlEvents:UIControlEventTouchUpInside];
         _backBtn = btn;
     }
     return _backBtn;
-}
-
-- (UIImage *)getBackItemImage {
-    return [LdzfMobileFrameworkUtil imageNamed:@"navigation_back"];
-}
-
-- (void)setNavTitle:(NSString *)navTitle {
-    _navTitle = navTitle;
-    if (self.appBar) {
-        self.appBar.titleLabel.text = navTitle;
-        [self.appBar setNeedsLayout];
-    }
-}
-
-- (void)setAppBarBgColor:(UIColor *)appBarBgColor {
-    _appBarBgColor = appBarBgColor;
-    if (self.appBar) {
-        self.appBar.bgView.backgroundColor = appBarBgColor;
-    }
-}
-
-- (void)setAppBarBgImage:(UIImage *)appBarBgImage {
-    _appBarBgImage = appBarBgImage;
-    if (self.appBar) {
-        self.appBar.bgView.image = appBarBgImage;
-    }
-}
-
-- (void)setHideAppBar:(BOOL)hideAppBar {
-    _hideAppBar = hideAppBar;
-    self.appBar.hidden = hideAppBar;
 }
 
 #pragma mark - Orientation
@@ -197,10 +185,7 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
-    if (!self.isLightContentStyle) {
-        return UIStatusBarStyleDefault;
-    }
-    return UIStatusBarStyleLightContent;
+    return self.statusBarStyle;
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  UIDevice+LDZFGeneral.h
+//  UIDevice+LdzfGeneral.h
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIDevice (LDZFGeneral)
+@interface UIDevice (LdzfGeneral)
 
 #pragma mark - 设备信息
 /// 获取 通用 - 关于本机 - 名称

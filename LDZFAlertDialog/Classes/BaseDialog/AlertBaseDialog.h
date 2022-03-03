@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)baseDialogWillHide:(AlertBaseDialog *)dialog;
 - (void)baseDialogDidHide:(AlertBaseDialog *)dialog;
 - (void)baseDialog:(AlertBaseDialog *)dialog didSelectedItems:(NSArray *)items;
-
 - (void)baseDialog:(AlertBaseDialog *)dialog didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

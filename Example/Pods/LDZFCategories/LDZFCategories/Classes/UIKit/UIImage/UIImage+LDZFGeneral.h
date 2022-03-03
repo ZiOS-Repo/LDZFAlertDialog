@@ -1,5 +1,5 @@
 //
-//  UIImage+LDZFGeneral.h
+//  UIImage+LdzfGeneral.h
 //  JXCategoryKit
 //
 //  Created by zhuyuhui on 2021/12/3.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (LDZFGeneral)
+@interface UIImage (LdzfGeneral)
 
 @property (nonatomic,readonly) BOOL ldzf_hasAlphaChannel; // 图片是否有透明
 @property (nonatomic, readonly) NSString *ldzf_base64String; // 转换图片为png格式的base64编码

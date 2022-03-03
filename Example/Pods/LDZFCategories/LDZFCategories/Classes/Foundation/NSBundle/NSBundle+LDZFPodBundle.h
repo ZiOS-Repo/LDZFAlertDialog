@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@interface NSBundle (LDZFPodBundle)
+@interface NSBundle (LdzfPodBundle)
 /**
  获取Pod库中的指定NSBundle
  Pod库中可能存在多个.bundle文件

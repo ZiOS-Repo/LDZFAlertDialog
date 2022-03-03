@@ -6,7 +6,7 @@
 //  Copyright © 2017年 YouXianMing. All rights reserved.
 //
 
-#import <LDZFUIKit/LdzfCustomPickerView.h>
+#import <LDZFPickerView/LDZFPickerView.h>
 #import <LDZFCategories/LDZFCategories.h>
 
 @interface AlertSingleChoiceDialogRowView : LdzfPickerReusingView

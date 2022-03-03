@@ -1,13 +1,13 @@
 //
-//  NSBundle+LDZFPodBundle.m
+//  NSBundle+LdzfPodBundle.m
 //  CRJCategories
 //
 //  Created by zhuyuhui on 2020/9/22.
 //
 
-#import "NSBundle+LDZFPodBundle.h"
+#import "NSBundle+LdzfPodBundle.h"
 
-@implementation NSBundle (LDZFPodBundle)
+@implementation NSBundle (LdzfPodBundle)
 
 + (NSBundle *)ldzf_subBundle:(NSString *)bundleName podName:(NSString *)podName;
 {

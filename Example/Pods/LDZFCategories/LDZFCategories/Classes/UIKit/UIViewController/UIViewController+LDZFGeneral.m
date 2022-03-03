@@ -1,13 +1,13 @@
 //
-//  UIViewController+LDZFGeneral.m
+//  UIViewController+LdzfGeneral.m
 //  LDZFCategories
 //
 //  Created by zhuyuhui on 2021/12/3.
 //
 
-#import "UIViewController+LDZFGeneral.h"
+#import "UIViewController+LdzfGeneral.h"
 
-@implementation UIViewController (LDZFGeneral)
+@implementation UIViewController (LdzfGeneral)
 - (UIViewController *)ldzf_previousViewController {
     if (self.navigationController.viewControllers && self.navigationController.viewControllers.count > 1 && self.navigationController.topViewController == self) {
         NSUInteger count = self.navigationController.viewControllers.count;
