@@ -9,7 +9,7 @@
 
 @implementation UIImage (LdzfGeneral)
 
-- (BOOL)ldzf_hasAlphaChannel
+- (BOOL)qnm_hasAlphaChannel
 {
     if (self.CGImage == NULL) return NO;
     CGImageAlphaInfo alpha = CGImageGetAlphaInfo(self.CGImage) & kCGBitmapAlphaInfoMask;
@@ -19,14 +19,14 @@
             alpha == kCGImageAlphaPremultipliedLast);
 }
 
-- (NSString *)ldzf_base64String
+- (NSString *)qnm_base64String
 {
     NSData *data = UIImagePNGRepresentation(self);
     NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
     return encodedImageStr;
 }
 
-- (UIImage *)ldzf_updateImageOrientation
+- (UIImage *)qnm_updateImageOrientation
 {
     if (self != nil) {
         // 如果方向已经正确，则不进行操作
@@ -102,7 +102,7 @@
     }
     return nil;
 }
-- (UIImage *)ldzf_imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize
+- (UIImage *)qnm_imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize
 {
     size_t width = (size_t)CGImageGetWidth(self.CGImage);
     size_t height = (size_t)CGImageGetHeight(self.CGImage);
@@ -137,7 +137,7 @@
 /**
  拼接长图
  */
-+ (void)ldzf_generateLongPictureWithHeadImage:(UIImage *)headImage footImage:(UIImage *)footImage masterImages:(NSArray <UIImage *>*)masterImgArr edgeMargin:(UIEdgeInsets)edgeMargin imageSpace:(CGFloat)imageSpace success:(void(^)(UIImage *longImage,CGFloat totalHeight))success
++ (void)qnm_generateLongPictureWithHeadImage:(UIImage *)headImage footImage:(UIImage *)footImage masterImages:(NSArray <UIImage *>*)masterImgArr edgeMargin:(UIEdgeInsets)edgeMargin imageSpace:(CGFloat)imageSpace success:(void(^)(UIImage *longImage,CGFloat totalHeight))success
 {
     NSAssert(masterImgArr.count != 0, @"主视图不能为空");
     // 总高度
@@ -204,7 +204,7 @@
         success(resultImage,totalH);
     }
 }
-- (NSData *)ldzf_compressImageDataDichotomyWith:(int)maxSize
+- (NSData *)qnm_compressImageDataDichotomyWith:(int)maxSize
 {
 //    CGFloat maxFileSize = imageDataSize*1024;
 //    CGFloat compression = 0.9f;
@@ -238,7 +238,7 @@
     return data;
 }
 
-- (NSData *)ldzf_compressImageDataWith:(int)maxSize
+- (NSData *)qnm_compressImageDataWith:(int)maxSize
 {
     UIImage *resultImage = self;
     NSData *data = UIImageJPEGRepresentation(resultImage, 1);
@@ -260,7 +260,7 @@
     return data;
 }
 
-- (NSData *)ldzf_compressImageCombineWith:(int)maxSize
+- (NSData *)qnm_compressImageCombineWith:(int)maxSize
 {
     CGFloat maxFileSize = maxSize*1024;
     // Compress by quality
@@ -303,7 +303,7 @@
 /**
  根据URL获取尺寸
  */
-+ (CGSize)ldzf_getImageSizeWithURL:(id)URL
++ (CGSize)qnm_getImageSizeWithURL:(id)URL
 {
     NSURL * url = nil;
     if ([URL isKindOfClass:[NSURL class]]) {
@@ -372,7 +372,7 @@
     return CGSizeMake(width, height);
 }
 
-+ (UIImage *)ldzf_imageWithSmallGIFData:(NSData *)data scale:(CGFloat)scale {
++ (UIImage *)qnm_imageWithSmallGIFData:(NSData *)data scale:(CGFloat)scale {
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFTypeRef)(data), NULL);
     if (!source) return nil;
     
@@ -467,7 +467,7 @@
     return image;
 }
 
-+ (BOOL)ldzf_isAnimatedGIFData:(NSData *)data
++ (BOOL)qnm_isAnimatedGIFData:(NSData *)data
 {
     if (data.length < 16) return NO;
     UInt32 magic = *(UInt32 *)data.bytes;
@@ -480,7 +480,7 @@
     return count > 1;
 }
 
-+ (BOOL)ldzf_isAnimatedGIFFile:(NSString *)path
++ (BOOL)qnm_isAnimatedGIFFile:(NSString *)path
 {
     if (path.length == 0) return NO;
     const char *cpath = path.UTF8String;
@@ -496,11 +496,11 @@
     return isGIF;
 }
 
-+ (UIImage *)ldzf_imageWithPDF:(id)dataOrPath {
++ (UIImage *)qnm_imageWithPDF:(id)dataOrPath {
     return [self p_imageWithPDF:dataOrPath resize:NO size:CGSizeZero];
 }
 
-+ (UIImage *)ldzf_imageWithPDF:(id)dataOrPath size:(CGSize)size {
++ (UIImage *)qnm_imageWithPDF:(id)dataOrPath size:(CGSize)size {
     return [self p_imageWithPDF:dataOrPath resize:YES size:size];
 }
 

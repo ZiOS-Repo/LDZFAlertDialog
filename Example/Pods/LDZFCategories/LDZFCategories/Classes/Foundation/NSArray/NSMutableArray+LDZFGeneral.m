@@ -3,24 +3,24 @@
 
 @implementation NSMutableArray (LdzfGeneral)
 
-- (void)ldzf_removeFirstObject
+- (void)qnm_removeFirstObject
 { 
     if (self.count) {
         [self removeObjectAtIndex:0];
     }
 }
 
-- (id)ldzf_popFirstObject
+- (id)qnm_popFirstObject
 {
     id obj = nil;
     if (self.count) {
         obj = self.firstObject;
-        [self ldzf_removeFirstObject];
+        [self qnm_removeFirstObject];
     }
     return obj;
 }
 
-- (id)ldzf_popLastObject
+- (id)qnm_popLastObject
 {
     id obj = nil;
     if (self.count) {
@@ -30,7 +30,7 @@
     return obj;
 }
 
-- (void)ldzf_reverse {
+- (void)qnm_reverse {
     NSUInteger count = self.count;
     int mid = floor(count / 2.0);
     for (NSUInteger i = 0; i < mid; i++) {
@@ -38,7 +38,7 @@
     }
 }
 
-- (void)ldzf_shuffle {
+- (void)qnm_shuffle {
     for (NSUInteger i = self.count; i > 1; i--) {
         [self exchangeObjectAtIndex:(i - 1)
                   withObjectAtIndex:arc4random_uniform((u_int32_t)i)];

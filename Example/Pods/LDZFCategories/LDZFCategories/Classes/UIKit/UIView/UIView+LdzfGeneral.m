@@ -10,7 +10,7 @@
 @implementation UIView (LdzfGeneral)
 
 #pragma mark - General
-- (UIImage *)ldzf_snapshot
+- (UIImage *)qnm_snapshot
 {
     /*
     renderInContext:方式实际上是通过遍历UIView的layer tree进行渲染，但是它不支持动画的渲染，它的的性能会和layer tree的复杂度直接关联
@@ -48,7 +48,7 @@
     }
 }
 
-- (NSData *)ldzf_snapshotPDF
+- (NSData *)qnm_snapshotPDF
 {
     CGRect bounds = self.bounds;
     NSMutableData* data = [NSMutableData data];
@@ -66,7 +66,7 @@
     return data;
 }
 
-- (UIImage *)ldzf_cutoutInViewWithRect:(CGRect)rect
+- (UIImage *)qnm_cutoutInViewWithRect:(CGRect)rect
 {
     UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, 0.0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -79,7 +79,7 @@
     return img;
 }
 
-- (void)ldzf_addBlurEffectWith:(UIBlurEffectStyle)blurStyle
+- (void)qnm_addBlurEffectWith:(UIBlurEffectStyle)blurStyle
 {
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:blurStyle];
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
@@ -92,7 +92,7 @@
  使用CAShapeLayer和UIBezierPath设置圆角，对内存的消耗最少，而且渲染快速
  注意：view的frame必须已知，自动布局调入另一个传入frame方法
  */
-- (void)ldzf_addRectCornerWithViewBounds:(CGRect)rect corner:(UIRectCorner)corner radius:(CGFloat)radius
+- (void)qnm_addRectCornerWithViewBounds:(CGRect)rect corner:(UIRectCorner)corner radius:(CGFloat)radius
 {
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corner cornerRadii:CGSizeMake(radius, radius)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
@@ -100,21 +100,21 @@
     maskLayer.path = path.CGPath;
     self.layer.mask = maskLayer;
 }
-- (void)ldzf_addRectCornerWith:(UIRectCorner)corner radius:(CGFloat)radius
+- (void)qnm_addRectCornerWith:(UIRectCorner)corner radius:(CGFloat)radius
 {
-    [self ldzf_addRectCornerWithViewBounds:self.bounds corner:corner radius:radius];
+    [self qnm_addRectCornerWithViewBounds:self.bounds corner:corner radius:radius];
 }
 
-- (void)ldzf_addAllCornerWith:(CGFloat)radius
+- (void)qnm_addAllCornerWith:(CGFloat)radius
 {
-    [self ldzf_addRectCornerWith:UIRectCornerAllCorners radius:radius];
+    [self qnm_addRectCornerWith:UIRectCornerAllCorners radius:radius];
 }
-- (void)ldzf_addAllCornerWithViewBounds:(CGRect)rect radius:(CGFloat)radius
+- (void)qnm_addAllCornerWithViewBounds:(CGRect)rect radius:(CGFloat)radius
 {
-    [self ldzf_addRectCornerWithViewBounds:rect corner:UIRectCornerAllCorners radius:radius];
+    [self qnm_addRectCornerWithViewBounds:rect corner:UIRectCornerAllCorners radius:radius];
 }
 
-- (void)ldzf_drawDashLineWithpointArray:(NSArray *)pointArr lineWidth:(float)lineWidth lineLength:(float)lineLength lineSpacing:(float)lineSpacing lineColor:(UIColor *)lineColor
+- (void)qnm_drawDashLineWithpointArray:(NSArray *)pointArr lineWidth:(float)lineWidth lineLength:(float)lineLength lineSpacing:(float)lineSpacing lineColor:(UIColor *)lineColor
 {
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     [shapeLayer setBounds:self.bounds];
@@ -142,4 +142,16 @@
     //  把绘制好的虚线添加上来
     [self.layer addSublayer:shapeLayer];
 }
+
+// 获取view的父控制器
+- (UIViewController*)qnm_viewController {
+   for (UIView* next = [self superview]; next; next = next.superview) {
+       UIResponder* nextResponder = [next nextResponder];
+       if ([nextResponder isKindOfClass:[UIViewController class]]) {
+           return (UIViewController*)nextResponder;
+       }
+   }
+   return nil;
+}
+
 @end

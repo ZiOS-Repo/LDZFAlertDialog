@@ -3,7 +3,7 @@
 
 @implementation NSAttributedString (LdzfSize)
 
-- (CGFloat)ldzf_heightWithFixedWidth:(CGFloat)width {
+- (CGFloat)qnm_heightWithFixedWidth:(CGFloat)width {
     
     CGFloat height = 0;
     
@@ -20,7 +20,7 @@
     return height;
 }
 
-- (CGFloat)ldzf_width {
+- (CGFloat)qnm_width {
     
     CGFloat width = 0;
     
@@ -37,7 +37,7 @@
     return width;
 }
 
-- (CGFloat)ldzf_coreTextHeightWithFixedWidth:(CGFloat)width {
+- (CGFloat)qnm_coreTextHeightWithFixedWidth:(CGFloat)width {
     
     int maxValue = 20000;
     

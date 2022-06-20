@@ -11,16 +11,16 @@
 
 @interface NSString (LdzfExtension)
 /// 消除收尾空格
-- (NSString *)ldzf_removeBothEndsWhitespace;
+- (NSString *)qnm_removeBothEndsWhitespace;
 /// 消除收尾空格+换行符
-- (NSString *)ldzf_removeBothEndsWhitespaceAndNewline;
+- (NSString *)qnm_removeBothEndsWhitespaceAndNewline;
 /// 消除收尾空格
-- (NSString *)ldzf_trimWhitespace;
+- (NSString *)qnm_trimWhitespace;
 /// 消除所有空格
-- (NSString *)ldzf_trimAllWhitespace;
+- (NSString *)qnm_trimAllWhitespace;
 
 #pragma mark - 字符串查找.
-- (NSArray <NSValue *> *)ldzf_rangesOfString:(NSString *)searchString options:(NSStringCompareOptions)mask serachRange:(NSRange)range;
+- (NSArray <NSValue *> *)qnm_rangesOfString:(NSString *)searchString options:(NSStringCompareOptions)mask serachRange:(NSRange)range;
 
 
 /**
@@ -29,9 +29,8 @@
  @param hexString The hex string like '0xF181'
  @return The unicode.
  */
-+ (NSString *)ldzf_unicodeWithHexString:(NSString *)hexString;
++ (NSString *)qnm_unicodeWithHexString:(NSString *)hexString;
 
 
-/// 将JSON 字符串转化成序列化对象
-- (id)ldzf_JSONValue;
+
 @end

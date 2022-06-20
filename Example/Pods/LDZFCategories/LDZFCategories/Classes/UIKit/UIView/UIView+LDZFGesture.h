@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param target target description
  @param action 方法名
  */
-- (void)ldzf_addTapGestureRecognizerWithTarget:(id)target action:(SEL)action;
+- (void)qnm_addTapGestureRecognizerWithTarget:(id)target action:(SEL)action;
 
 /**
  添加Pan手势
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param target target description
  @param action 方法名
  */
-- (void)ldzf_addPanGestureRecognizerWithTarget:(id)target action:(SEL)action;
+- (void)qnm_addPanGestureRecognizerWithTarget:(id)target action:(SEL)action;
 
 /**
  添加LongPress手势
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param target target description
  @param action 方法名
  */
-- (void)ldzf_addLongPressGestureRecognizerWithTarget:(id)target action:(SEL)action;
+- (void)qnm_addLongPressGestureRecognizerWithTarget:(id)target action:(SEL)action;
 
 @end
 

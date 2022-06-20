@@ -11,13 +11,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (LdzfGeneral)
 /// 获取主窗体
-+ (nullable UIWindow *)ldzf_window;
-- (nullable UIViewController *)ldzf_topViewController;
-- (nullable UIViewController *)ldzf_topViewController:(UIViewController *)rootViewController;
++ (nullable UIWindow *)qnm_window;
+- (nullable UIViewController *)qnm_topViewController;
+- (nullable UIViewController *)qnm_topViewController:(UIViewController *)rootViewController;
 
+/// 将JSON 字符串转化成序列化对象
+- (id)qnm_JSONValue;
 
 /// 将可 JSON 化对象转化成 JSON 字符串
-- (NSString *)ldzf_JSONString;
+- (NSString *)qnm_JSONString;
 @end
 
 NS_ASSUME_NONNULL_END

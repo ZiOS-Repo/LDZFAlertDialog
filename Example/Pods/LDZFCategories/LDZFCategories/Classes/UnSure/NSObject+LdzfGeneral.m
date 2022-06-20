@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @implementation NSObject (LdzfGeneral)
-+ (nullable UIWindow *)ldzf_window {
++ (nullable UIWindow *)qnm_window {
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     if (window.windowLevel != UIWindowLevelNormal) {
         NSArray *windows = [[UIApplication sharedApplication] windows];
@@ -23,27 +23,45 @@
     return window;
 }
 
-- (nullable UIViewController *)ldzf_topViewController {
-    UIWindow * window = [NSObject ldzf_window];
-    return [self ldzf_topViewController:window.rootViewController];
+- (nullable UIViewController *)qnm_topViewController {
+    UIWindow * window = [NSObject qnm_window];
+    return [self qnm_topViewController:window.rootViewController];
 }
 
-- (nullable UIViewController *)ldzf_topViewController:(UIViewController *)rootViewController {
+- (nullable UIViewController *)qnm_topViewController:(UIViewController *)rootViewController {
     if ([rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigationController = (UINavigationController *)rootViewController;
-        return [self ldzf_topViewController:[navigationController.viewControllers lastObject]];
+        return [self qnm_topViewController:[navigationController.viewControllers lastObject]];
     }
     if ([rootViewController isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabController = (UITabBarController *)rootViewController;
-        return [self ldzf_topViewController:tabController.selectedViewController];
+        return [self qnm_topViewController:tabController.selectedViewController];
     }
     if (rootViewController.presentedViewController) {
-        return [self ldzf_topViewController:rootViewController.presentedViewController];
+        return [self qnm_topViewController:rootViewController.presentedViewController];
     }
     return rootViewController;
 }
 
--(NSString *)ldzf_JSONString
+
+
+-(id)qnm_JSONValue
+{
+    if (!self || ![self isKindOfClass:NSString.class]) {
+        return nil;
+    }
+    NSString *str = (NSString *)self;
+    NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+    if(err || !jsonObject) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return jsonObject;
+}
+
+-(NSString *)qnm_JSONString
 {
     if (!self || ![NSJSONSerialization isValidJSONObject:self]) {
         return nil;

@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param podName pod的名字
  @return bundle
  */
-+ (nullable NSBundle *)ldzf_subBundle:(NSString *)bundleName
-                              podName:(NSString *)podName;
++ (nullable NSBundle *)qnm_subBundle:(NSString *)bundleName
+                             podName:(NSString *)podName;
 @end
 
 NS_ASSUME_NONNULL_END

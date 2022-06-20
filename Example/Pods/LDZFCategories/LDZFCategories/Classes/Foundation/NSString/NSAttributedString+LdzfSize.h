@@ -12,20 +12,20 @@
  *
  *  @return String's height.
  */
-- (CGFloat)ldzf_heightWithFixedWidth:(CGFloat)width;
+- (CGFloat)qnm_heightWithFixedWidth:(CGFloat)width;
 
 /**
  *  Get the string's width.
  *
  *  @return String's width.
  */
-- (CGFloat)ldzf_width;
+- (CGFloat)qnm_width;
 
 /**
  *  Get the coreText string's width.
  *
  *  @return String's width.
  */
-- (CGFloat)ldzf_coreTextHeightWithFixedWidth:(CGFloat)width;
+- (CGFloat)qnm_coreTextHeightWithFixedWidth:(CGFloat)width;
 
 @end

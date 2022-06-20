@@ -11,7 +11,7 @@
 @implementation UIImage (LdzfGenerate)
 
 #pragma mark - 生成渐变色的图片
-+ (UIImage *)ldzf_gradientColorImageWithSize:(CGSize)size andColors:(NSArray *)colors startPoint:(CGPoint)startP endPoint:(CGPoint)endP;
++ (UIImage *)qnm_gradientColorImageWithSize:(CGSize)size andColors:(NSArray *)colors startPoint:(CGPoint)startP endPoint:(CGPoint)endP;
 {
     if (colors == nil || colors.count == 0) {
         return nil;
@@ -40,7 +40,7 @@
 
 #pragma mark - 生成带圆角的颜色图片
 
-+ (UIImage *)ldzf_cornerRadiusImageWithColor:(UIColor *)tintColor targetSize:(CGSize)targetSize corners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius backgroundColor:(UIColor *)backgroundColor
++ (UIImage *)qnm_cornerRadiusImageWithColor:(UIColor *)tintColor targetSize:(CGSize)targetSize corners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius backgroundColor:(UIColor *)backgroundColor
 {
     UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
     
@@ -74,23 +74,23 @@
     return finalImage;
 }
 
-+ (UIImage *)ldzf_squareImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize
++ (UIImage *)qnm_squareImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize
 {
-    return [UIImage ldzf_cornerRadiusImageWithColor:color targetSize:targetSize corners:UIRectCornerAllCorners cornerRadius:0 backgroundColor:[UIColor whiteColor]];
+    return [UIImage qnm_cornerRadiusImageWithColor:color targetSize:targetSize corners:UIRectCornerAllCorners cornerRadius:0 backgroundColor:[UIColor whiteColor]];
 }
 
-+ (UIImage *)ldzf_cornerRadiusImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize cornerRadius:(CGFloat)cornerRadius
++ (UIImage *)qnm_cornerRadiusImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize cornerRadius:(CGFloat)cornerRadius
 {
-    return [UIImage ldzf_cornerRadiusImageWithColor:color targetSize:targetSize corners:UIRectCornerAllCorners cornerRadius:cornerRadius backgroundColor:[UIColor whiteColor]];
+    return [UIImage qnm_cornerRadiusImageWithColor:color targetSize:targetSize corners:UIRectCornerAllCorners cornerRadius:cornerRadius backgroundColor:[UIColor whiteColor]];
 }
 
 #pragma mark - 生成三角图片
-+ (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LdzfTriangleDirection)direction
++ (UIImage *)qnm_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LdzfTriangleDirection)direction
 {
     size = CGSizeMake(size.width*[UIScreen mainScreen].scale, size.height*[UIScreen mainScreen].scale);
     
     CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
-    UIImage *myImage = [UIImage ldzf_squareImageWithColor:color targetSize:size];
+    UIImage *myImage = [UIImage qnm_squareImageWithColor:color targetSize:size];
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGPoint sPoints[3];//坐标点
@@ -125,7 +125,7 @@
 
 
 #pragma mark - Gradient
-- (UIImage *)ldzf_circleImageWithRadius:(CGFloat)radius
+- (UIImage *)qnm_circleImageWithRadius:(CGFloat)radius
 {
     UIGraphicsBeginImageContext(self.size);
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
@@ -137,7 +137,7 @@
     return image;
 }
 
-- (UIImage *)ldzf_circleImage
+- (UIImage *)qnm_circleImage
 {
     UIGraphicsBeginImageContext(self.size);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -150,7 +150,7 @@
     return image;
 }
 
-- (UIImage *)ldzf_circleHDImage
+- (UIImage *)qnm_circleHDImage
 {
     CGFloat side = MIN(self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(self.size, false, [UIScreen mainScreen].scale);
@@ -167,7 +167,7 @@
 }
 
 #pragma mark - 其他
-+ (nullable UIImage *)ldzf_imageWithEmoji:(NSString *)emoji size:(CGFloat)size
++ (nullable UIImage *)qnm_imageWithEmoji:(NSString *)emoji size:(CGFloat)size
 {
     if (emoji.length == 0) return nil;
     if (size < 1) return nil;
@@ -196,7 +196,7 @@
     return image;
 }
 
-+ (UIImage *)ldzf_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock
++ (UIImage *)qnm_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock
 {
     if (!drawBlock) return nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);

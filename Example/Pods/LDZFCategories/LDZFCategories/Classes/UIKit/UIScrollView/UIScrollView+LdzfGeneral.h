@@ -14,50 +14,50 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Scroll content to top with animation.
  */
-- (void)ldzf_scrollToTop;
+- (void)qnm_scrollToTop;
 
 /**
  Scroll content to bottom with animation.
  */
-- (void)ldzf_scrollToBottom;
+- (void)qnm_scrollToBottom;
 
 /**
  Scroll content to left with animation.
  */
-- (void)ldzf_scrollToLeft;
+- (void)qnm_scrollToLeft;
 
 /**
  Scroll content to right with animation.
  */
-- (void)ldzf_scrollToRight;
+- (void)qnm_scrollToRight;
 
 /**
  Scroll content to top.
  
  @param animated  Use animation.
  */
-- (void)ldzf_scrollToTopAnimated:(BOOL)animated;
+- (void)qnm_scrollToTopAnimated:(BOOL)animated;
 
 /**
  Scroll content to bottom.
  
  @param animated  Use animation.
  */
-- (void)ldzf_scrollToBottomAnimated:(BOOL)animated;
+- (void)qnm_scrollToBottomAnimated:(BOOL)animated;
 
 /**
  Scroll content to left.
  
  @param animated  Use animation.
  */
-- (void)ldzf_scrollToLeftAnimated:(BOOL)animated;
+- (void)qnm_scrollToLeftAnimated:(BOOL)animated;
 
 /**
  Scroll content to right.
  
  @param animated  Use animation.
  */
-- (void)ldzf_scrollToRightAnimated:(BOOL)animated;
+- (void)qnm_scrollToRightAnimated:(BOOL)animated;
 
 @end
 

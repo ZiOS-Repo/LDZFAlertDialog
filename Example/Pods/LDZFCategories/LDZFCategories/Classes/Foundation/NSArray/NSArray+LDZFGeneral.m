@@ -3,7 +3,7 @@
 
 @implementation NSArray (LdzfGeneral)
 
-- (NSArray *)ldzf_sortNSIndexArray
+- (NSArray *)qnm_sortNSIndexArray
 {
     if (self.count == 0) { return nil; }
     NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:@"section" ascending:YES];
@@ -12,7 +12,7 @@
     return arr;
 }
 
-- (id)ldzf_randomObject
+- (id)qnm_randomObject
 {
     if (self.count) {
         return self[arc4random_uniform((u_int32_t)self.count)];
@@ -20,7 +20,7 @@
     return nil;
 }
 
-- (NSArray *)ldzf_splitArrayWithSubSize:(NSInteger)subSize {
+- (NSArray *)qnm_splitArrayWithSubSize:(NSInteger)subSize {
     //  数组将被拆分成指定长度数组的个数
     NSInteger count = self.count % subSize == 0 ? (self.count / subSize) : (self.count / subSize + 1);
     //  用来保存指定长度数组的可变数组对象

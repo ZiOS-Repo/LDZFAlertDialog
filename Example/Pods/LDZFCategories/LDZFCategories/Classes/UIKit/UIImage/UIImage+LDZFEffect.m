@@ -10,7 +10,7 @@
 
 @implementation UIImage (LdzfEffect)
 
-- (UIImage *)ldzf_blurImageWithCoreImageBlurNumber:(CGFloat)blurNum
+- (UIImage *)qnm_blurImageWithCoreImageBlurNumber:(CGFloat)blurNum
 {
     if (self == nil) {
         return nil;
@@ -33,7 +33,7 @@
     return blurImage;
 }
 
-- (UIImage *)ldzf_blurImageWithAccelerateBlurValue:(CGFloat)blurValue {
+- (UIImage *)qnm_blurImageWithAccelerateBlurValue:(CGFloat)blurValue {
     if (self == nil) {
         return nil;
     }
@@ -102,22 +102,22 @@
 }
 
 
--(UIImage *)ldzf_applyLightEffect
+-(UIImage *)qnm_applyLightEffect
 {
     UIColor *tintColor =[UIColor colorWithWhite:1.0 alpha:0.3];
-    return [self ldzf_applyBlurWithRadius:30 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
+    return [self qnm_applyBlurWithRadius:30 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
 }
--(UIImage *)ldzf_applyExtraLightEffect
+-(UIImage *)qnm_applyExtraLightEffect
 {
     UIColor *tintColor =[UIColor colorWithWhite:0.97 alpha:0.82];
-    return [self ldzf_applyBlurWithRadius:20 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
+    return [self qnm_applyBlurWithRadius:20 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
 }
--(UIImage *)ldzf_applyDarkEffect
+-(UIImage *)qnm_applyDarkEffect
 {
     UIColor *tintColor =[UIColor colorWithWhite:0.11 alpha:0.73];
-    return [self ldzf_applyBlurWithRadius:20 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
+    return [self qnm_applyBlurWithRadius:20 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
 }
--(UIImage *)ldzf_applyTintEffectWithColor:(UIColor*)tintColor
+-(UIImage *)qnm_applyTintEffectWithColor:(UIColor*)tintColor
 {
     const CGFloat effectColorAlpha = 0.6;
     UIColor *effectColor = tintColor;
@@ -133,9 +133,9 @@
             effectColor =[UIColor colorWithRed:r green:g blue:b alpha:effectColorAlpha];
         }
     }
-    return [self ldzf_applyBlurWithRadius:10 tintColor:effectColor saturationDeltaFactor:-1.0 maskImage:nil];
+    return [self qnm_applyBlurWithRadius:10 tintColor:effectColor saturationDeltaFactor:-1.0 maskImage:nil];
 }
--(UIImage *)ldzf_applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor*)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(nullable UIImage*)maskImage
+-(UIImage *)qnm_applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor*)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(nullable UIImage*)maskImage
 {
     // Check pre-conditions.
     if(self.size.width < 1 || self.size.height < 1){

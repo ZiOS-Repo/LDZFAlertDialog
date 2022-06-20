@@ -5,7 +5,7 @@
 @implementation NSString (LdzfHandle)
 
 //截取卡号最后六位
-+ (NSString *)ldzf_getLastSixChar:(NSString *)string {
++ (NSString *)qnm_getLastSixChar:(NSString *)string {
     if (![string isKindOfClass:[NSString class]]) return @"";
     if (string.length>0) {
         if (string.length>6) {
@@ -18,7 +18,7 @@
     }
 }
 //截取卡号最后四位
-+ (NSString *)ldzf_getLastFourChar:(NSString *)string {
++ (NSString *)qnm_getLastFourChar:(NSString *)string {
     if (![string isKindOfClass:[NSString class]]) return @"";
     if (string.length>0) {
         if (string.length>4) {
@@ -32,7 +32,7 @@
 }
 
 /** 获取前4位 */
-+ (NSString *)ldzf_getFirstFourChar:(NSString *)string {
++ (NSString *)qnm_getFirstFourChar:(NSString *)string {
     if (![string isKindOfClass:[NSString class]]) return @"";
     if (string.length > 0) {
         if (string.length >= 4) {
@@ -45,7 +45,7 @@
     }
 }
 
-+ (NSString *)ldzf_insertSpace:(NSString *)string {
++ (NSString *)qnm_insertSpace:(NSString *)string {
     NSMutableString *tmpStr =[NSMutableString stringWithString:string];
     for (int i =0; i <string.length; i++) {
         if (i!=0 && i %4 ==0) {
@@ -56,12 +56,12 @@
 }
 
 // 证件号显示处理320113198804118177
-+ (NSString *)ldzf_replacedByStar:(NSString *)string end:(NSUInteger)end {
-    return [NSString ldzf_replacedByStar:string begin:0 end:end];
++ (NSString *)qnm_replacedByStar:(NSString *)string end:(NSUInteger)end {
+    return [NSString qnm_replacedByStar:string begin:0 end:end];
 }
 
 // 证件号显示处理320113198804118177
-+ (NSString *)ldzf_replacedByStar:(NSString *)string begin:(NSUInteger)begin end:(NSUInteger)end {
++ (NSString *)qnm_replacedByStar:(NSString *)string begin:(NSUInteger)begin end:(NSUInteger)end {
     if (string.length < begin+end) return string;
     NSMutableString *tempStr = [NSMutableString stringWithString:string];
     for (NSUInteger i = begin; i < string.length-end; i++) {
@@ -75,8 +75,8 @@
 
 
 #pragma mark - 金额处理
-- (NSString *)ldzf_transformToMoneyType {
-    if (![NSString ldzf_isEmpty:self]) {
+- (NSString *)qnm_transformToMoneyType {
+    if (![NSString qnm_isEmpty:self]) {
         NSString *string = (NSString *)self;
         if ([string containsString:@","]) {
             string = [string stringByReplacingOccurrencesOfString:@"," withString:@""];
@@ -106,7 +106,7 @@
     return NO;
 }
 
-- (NSString *)ldzf_urlStringAppendParameters:(NSDictionary *)parameters {
+- (NSString *)qnm_urlStringAppendParameters:(NSDictionary *)parameters {
     NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:self];
     if ([parameters allKeys]) {
         [mutableUrl appendString:@"?"];

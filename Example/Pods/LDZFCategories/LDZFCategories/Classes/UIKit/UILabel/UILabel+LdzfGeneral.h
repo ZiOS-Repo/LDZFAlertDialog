@@ -3,8 +3,8 @@
 
 @interface UILabel (LdzfGeneral)
 
-- (void)ldzf_sizeToFitWithText:(NSString *)text config:(void (^)(UILabel *label))configBlock;
-- (void)ldzf_sizeToFitWithAttributedText:(NSAttributedString *)text config:(void (^)(UILabel *label))configBlock;
+- (void)qnm_sizeToFitWithText:(NSString *)text config:(void (^)(UILabel *label))configBlock;
+- (void)qnm_sizeToFitWithAttributedText:(NSAttributedString *)text config:(void (^)(UILabel *label))configBlock;
 
 
 @end

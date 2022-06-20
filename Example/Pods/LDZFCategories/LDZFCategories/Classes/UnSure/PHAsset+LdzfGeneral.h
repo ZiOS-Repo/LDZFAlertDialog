@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  获取最新一张图片
  */
-+ (PHAsset *)ldzf_latestAsset;
++ (PHAsset *)qnm_latestAsset;
 
-+ (UIImage *)ldzf_latestOriginImage;
++ (UIImage *)qnm_latestOriginImage;
 
-+ (void)ldzf_latestImageWithSize:(CGSize)size completeBlock:(void(^)(UIImage *image))block;
++ (void)qnm_latestImageWithSize:(CGSize)size completeBlock:(void(^)(UIImage *image))block;
 
 @end
 

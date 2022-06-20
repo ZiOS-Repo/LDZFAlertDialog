@@ -3,7 +3,7 @@
 
 @implementation UILabel (LdzfGeneral)
 
-- (void)ldzf_sizeToFitWithText:(NSString *)text config:(void (^)(UILabel *label))configBlock {
+- (void)qnm_sizeToFitWithText:(NSString *)text config:(void (^)(UILabel *label))configBlock {
 
     self.text = text;
     [self sizeToFit];
@@ -13,7 +13,7 @@
     }
 }
 
-- (void)ldzf_sizeToFitWithAttributedText:(NSAttributedString *)text config:(void (^)(UILabel *label))configBlock {
+- (void)qnm_sizeToFitWithAttributedText:(NSAttributedString *)text config:(void (^)(UILabel *label))configBlock {
     
     self.attributedText = text;
     [self sizeToFit];

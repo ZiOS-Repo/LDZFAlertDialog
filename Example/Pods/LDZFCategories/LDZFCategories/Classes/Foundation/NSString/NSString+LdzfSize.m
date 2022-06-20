@@ -3,7 +3,7 @@
 
 @implementation NSString (LdzfSize)
 
-- (CGFloat)ldzf_heightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width {
+- (CGFloat)qnm_heightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width {
     
     NSParameterAssert(attribute);
     
@@ -23,7 +23,7 @@
     return height;
 }
 
-- (CGFloat)ldzf_widthWithStringAttribute:(NSDictionary <NSString *, id> *)attribute {
+- (CGFloat)qnm_widthWithStringAttribute:(NSDictionary <NSString *, id> *)attribute {
     
     NSParameterAssert(attribute);
     
@@ -43,7 +43,7 @@
     return width;
 }
 
-+ (CGFloat)ldzf_oneLineOfTextHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute {
++ (CGFloat)qnm_oneLineOfTextHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute {
     
     NSParameterAssert(attribute);
     
@@ -58,7 +58,7 @@
     return height;
 }
 
-- (CGFloat)ldzf_heightWithStringFont:(UIFont *)font fixedWidth:(CGFloat)width {
+- (CGFloat)qnm_heightWithStringFont:(UIFont *)font fixedWidth:(CGFloat)width {
 
     NSParameterAssert(font);
     
@@ -78,7 +78,7 @@
     return height;
 }
 
-- (CGFloat)ldzf_widthWithStringFont:(UIFont *)font {
+- (CGFloat)qnm_widthWithStringFont:(UIFont *)font {
 
     NSParameterAssert(font);
     
@@ -98,7 +98,7 @@
     return width;
 }
 
-+ (CGFloat)ldzf_oneLineOfTextHeightWithStringFont:(UIFont *)font {
++ (CGFloat)qnm_oneLineOfTextHeightWithStringFont:(UIFont *)font {
 
     NSParameterAssert(font);
     

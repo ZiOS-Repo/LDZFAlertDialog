@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (LdzfGraduallyView)
 
-- (void)ldzf_addGraduallyLayerWithStartColor:(UIColor *)startColor
+- (void)qnm_addGraduallyLayerWithStartColor:(UIColor *)startColor
                                 withendColor:(UIColor *)endColor;
 
-- (void)ldzf_addGraduallyLayer:(CGRect)frame
+- (void)qnm_addGraduallyLayer:(CGRect)frame
                 withStartColor:(UIColor *)startColor
                   withendColor:(UIColor *)endColor;
 
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param cornerRadius 圆角
 /// @param startColor 渐变色起始颜色
 /// @param endColor 渐变色终止颜色
-- (void)ldzf_addGradientLayer:(CGRect)frame withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor;
+- (void)qnm_addGradientLayer:(CGRect)frame withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor;
 
 /// 添加渐变色边框
 /// @param frame frame
@@ -31,14 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param cornerRadius 圆角
 /// @param startColor 渐变色起始颜色
 /// @param endColor 渐变色终止颜色
-- (void)ldzf_addGradientBorderLayer:(CGRect)frame withBorderWidth:(CGFloat)borderWidth withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor;
+- (void)qnm_addGradientBorderLayer:(CGRect)frame withBorderWidth:(CGFloat)borderWidth withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor;
 
 
-- (CAGradientLayer *)ldzf_achiveGraduallylayer;
+- (CAGradientLayer *)qnm_achiveGraduallylayer;
 
-- (void)ldzf_removeGradientLayer;
+- (void)qnm_removeGradientLayer;
 
-- (CAGradientLayer *)ldzf_graduallylayer;
+- (CAGradientLayer *)qnm_graduallylayer;
 
 @end
 

@@ -15,15 +15,15 @@ PODS:
   - LDZFAlertDialog/SingleChoiceDialog (0.1.4):
     - LDZFAlertDialog/BaseDialog
     - LDZFPickerView
-  - LDZFCategories (0.1.23):
-    - LDZFCategories/Foundation (= 0.1.23)
-    - LDZFCategories/QuartzCore (= 0.1.23)
-    - LDZFCategories/UIKit (= 0.1.23)
-    - LDZFCategories/UnSure (= 0.1.23)
-  - LDZFCategories/Foundation (0.1.23)
-  - LDZFCategories/QuartzCore (0.1.23)
-  - LDZFCategories/UIKit (0.1.23)
-  - LDZFCategories/UnSure (0.1.23)
+  - LDZFCategories (0.1.24):
+    - LDZFCategories/Foundation (= 0.1.24)
+    - LDZFCategories/QuartzCore (= 0.1.24)
+    - LDZFCategories/UIKit (= 0.1.24)
+    - LDZFCategories/UnSure (= 0.1.24)
+  - LDZFCategories/Foundation (0.1.24)
+  - LDZFCategories/QuartzCore (0.1.24)
+  - LDZFCategories/UIKit (0.1.24)
+  - LDZFCategories/UnSure (0.1.24)
   - LDZFCommon (0.2.2)
   - LDZFPickerView (0.1.0)
   - Masonry (1.1.0)
@@ -44,7 +44,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   LDZFAlertDialog: ebb784919b7b30eb6f9c62b079eeb591e7fcf853
-  LDZFCategories: b27ee8d25ee03f23dfa0234209526fbf2738cb0f
+  LDZFCategories: 63f7d9056e4d3715801be2646933bfd575cff497
   LDZFCommon: 235eba2151b8cb4773caf7ea71d42245b1279c3a
   LDZFPickerView: 81a4c57fb6f596a0a9d38cd3aefb635ae5ac68ad
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201

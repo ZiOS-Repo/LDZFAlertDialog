@@ -8,7 +8,7 @@
 #import "PHAsset+LdzfGeneral.h"
 
 @implementation PHAsset (LdzfGeneral)
-+ (PHAsset *)ldzf_latestAsset
++ (PHAsset *)qnm_latestAsset
 {
     // 获取所有资源的集合，并按资源的创建时间排序
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
@@ -17,9 +17,9 @@
     return [assetsFetchResults firstObject];
 }
 
-+ (UIImage *)ldzf_latestOriginImage
++ (UIImage *)qnm_latestOriginImage
 {
-    PHAsset *asset = [self ldzf_latestAsset];
+    PHAsset *asset = [self qnm_latestAsset];
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     // 同步获得图片, 只会返回1张图片
     options.synchronous = YES;
@@ -33,9 +33,9 @@
     return image;
 }
 
-+ (void)ldzf_latestImageWithSize:(CGSize)size completeBlock:(void (^)(UIImage *))block
++ (void)qnm_latestImageWithSize:(CGSize)size completeBlock:(void (^)(UIImage *))block
 {
-    PHAsset *asset = [self ldzf_latestAsset];
+    PHAsset *asset = [self qnm_latestAsset];
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     options.synchronous = NO;
     [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {

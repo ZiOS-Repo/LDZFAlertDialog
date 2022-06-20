@@ -13,7 +13,7 @@
  *
  *  @return String's height.
  */
-- (CGFloat)ldzf_heightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width;
+- (CGFloat)qnm_heightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute fixedWidth:(CGFloat)width;
 
 /**
  *  Get the string's width.
@@ -22,7 +22,7 @@
  *
  *  @return String's width.
  */
-- (CGFloat)ldzf_widthWithStringAttribute:(NSDictionary <NSString *, id> *)attribute;
+- (CGFloat)qnm_widthWithStringAttribute:(NSDictionary <NSString *, id> *)attribute;
 
 /**
  *  Get a line of text height.
@@ -31,7 +31,7 @@
  *
  *  @return String's width.
  */
-+ (CGFloat)ldzf_oneLineOfTextHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute;
++ (CGFloat)qnm_oneLineOfTextHeightWithStringAttribute:(NSDictionary <NSString *, id> *)attribute;
 
 #pragma mark - Font.
 
@@ -43,7 +43,7 @@
  *
  *  @return String's height.
  */
-- (CGFloat)ldzf_heightWithStringFont:(UIFont *)font fixedWidth:(CGFloat)width;
+- (CGFloat)qnm_heightWithStringFont:(UIFont *)font fixedWidth:(CGFloat)width;
 
 /**
  *  Get the string's width.
@@ -52,7 +52,7 @@
  *
  *  @return String's width.
  */
-- (CGFloat)ldzf_widthWithStringFont:(UIFont *)font;
+- (CGFloat)qnm_widthWithStringFont:(UIFont *)font;
 
 /**
  *  Get a line of text height.
@@ -61,7 +61,7 @@
  *
  *  @return String's width.
  */
-+ (CGFloat)ldzf_oneLineOfTextHeightWithStringFont:(UIFont *)font;
++ (CGFloat)qnm_oneLineOfTextHeightWithStringFont:(UIFont *)font;
 
 
 

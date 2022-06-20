@@ -9,7 +9,7 @@
 
 @implementation UIImage (LdzfQRCode)
 
-+ (UIImage *)ldzf_qrHUDImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel
++ (UIImage *)qnm_qrHUDImageByContent:(NSString *)content outputSize:(CGFloat)outputSize tintColor:(nullable UIColor *)tintColor logo:(nullable UIImage *)logo logoFrame:(CGRect)logoFrame isCorrectionHighLevel:(BOOL)isHighLevel
 {
     if (content == nil || content.length == 0) {
         return nil;
@@ -38,47 +38,47 @@
 
 /// 生成二维码图片（默认大小为430*430）
 /// @param content 内容
-+ (UIImage *)ldzf_qrImageByContent:(NSString *)content
++ (UIImage *)qnm_qrImageByContent:(NSString *)content
 {
-    return [UIImage ldzf_qrHUDImageByContent:content outputSize:430 tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
+    return [UIImage qnm_qrHUDImageByContent:content outputSize:430 tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
 }
 
 /// 生成高清二维码
 /// @param content 内容
 /// @param outputSize 输出尺寸
-+ (UIImage *)ldzf_qrHUDImageByContent:(NSString *)content outputSize:(CGFloat)outputSize
++ (UIImage *)qnm_qrHUDImageByContent:(NSString *)content outputSize:(CGFloat)outputSize
 {
-    return [UIImage ldzf_qrHUDImageByContent:content outputSize:outputSize tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
+    return [UIImage qnm_qrHUDImageByContent:content outputSize:outputSize tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
 }
 
 /// 生成高清二维码
 /// @param content 内容
 /// @param outputSize 输出尺寸
 /// @param color 颜色
-+ (UIImage *)ldzf_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize color:(nullable UIColor *)color
++ (UIImage *)qnm_qrImageByContent:(NSString *)content outputSize:(CGFloat)outputSize color:(nullable UIColor *)color
 {
-    return [UIImage ldzf_qrHUDImageByContent:content outputSize:outputSize tintColor:color logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
+    return [UIImage qnm_qrHUDImageByContent:content outputSize:outputSize tintColor:color logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
 }
 
 /// 生成高清二维码
 /// @param content 内容
 /// @param logo logo，默认放在中间位置
-+ (UIImage *)ldzf_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize logo:(nullable UIImage *)logo;
++ (UIImage *)qnm_qrImageWithContent:(NSString *)content outputSize:(CGFloat)outputSize logo:(nullable UIImage *)logo;
 {
     CGSize logoSize = logo.size;
     if (logoSize.width > outputSize || logoSize.height > outputSize) {
-        UIImage *resultImage = [UIImage ldzf_qrHUDImageByContent:content outputSize:outputSize tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
+        UIImage *resultImage = [UIImage qnm_qrHUDImageByContent:content outputSize:outputSize tintColor:nil logo:nil logoFrame:CGRectZero isCorrectionHighLevel:true];
         return resultImage;
     }
     CGRect frame = CGRectMake((logoSize.width - outputSize)/2, (logoSize.height - outputSize)/2, logoSize.width, logoSize.height);
-    UIImage *resultImage = [UIImage ldzf_qrHUDImageByContent:content outputSize:outputSize tintColor:nil logo:logo logoFrame:frame isCorrectionHighLevel:true];
+    UIImage *resultImage = [UIImage qnm_qrHUDImageByContent:content outputSize:outputSize tintColor:nil logo:logo logoFrame:frame isCorrectionHighLevel:true];
     return resultImage;
 }
 
 /**
  获取二维码内内容
  */
-- (NSString *)ldzf_getQRCodeContentString
+- (NSString *)qnm_getQRCodeContentString
 {
     if (!self) {
         return nil;

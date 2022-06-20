@@ -9,7 +9,7 @@
 
 @implementation UIImage (LdzfClip)
 
-- (UIImage *)ldzf_imageClipRect:(CGRect)clipRect
+- (UIImage *)qnm_imageClipRect:(CGRect)clipRect
 {
     CGSize imageSize = self.size;
     if (clipRect.origin.x > imageSize.width || clipRect.origin.y > imageSize.height) {
@@ -25,7 +25,7 @@
     return newImage;
 }
 
-- (nullable UIImage *)ldzf_imageByRoundCornerRadius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin
+- (nullable UIImage *)qnm_imageByRoundCornerRadius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin
 {
     if (corners != UIRectCornerAllCorners) {
         UIRectCorner tmp = 0;
@@ -72,29 +72,29 @@
     UIGraphicsEndImageContext();
     return image;
 }
-- (nullable UIImage *)ldzf_imageByRoundCornerRadius:(CGFloat)radius borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor
+- (nullable UIImage *)qnm_imageByRoundCornerRadius:(CGFloat)radius borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor
 {
-    return [self ldzf_imageByRoundCornerRadius:radius
+    return [self qnm_imageByRoundCornerRadius:radius
                                      corners:UIRectCornerAllCorners
                                  borderWidth:borderWidth
                                  borderColor:borderColor
                               borderLineJoin:kCGLineJoinMiter];
 }
 
-- (nullable UIImage *)ldzf_circleImageByBorderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor
+- (nullable UIImage *)qnm_circleImageByBorderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor
 {
     if (self.size.width == self.size.height) {
-        return [self ldzf_imageByRoundCornerRadius:self.size.width/2 borderWidth:borderWidth borderColor:borderColor];
+        return [self qnm_imageByRoundCornerRadius:self.size.width/2 borderWidth:borderWidth borderColor:borderColor];
     } else {
         CGFloat min = MIN(self.size.width, self.size.height);
         CGFloat pointX = (self.size.width - min) / 2;
         CGFloat pointY = (self.size.height - min) / 2;
-        UIImage *newImage = [self ldzf_imageClipRect:CGRectMake(pointX, pointY, min, min)];
-        return [newImage ldzf_imageByRoundCornerRadius:min/2 borderWidth:borderWidth borderColor:borderColor];
+        UIImage *newImage = [self qnm_imageClipRect:CGRectMake(pointX, pointY, min, min)];
+        return [newImage qnm_imageByRoundCornerRadius:min/2 borderWidth:borderWidth borderColor:borderColor];
     }
 }
 
-- (UIImage *)ldzf_resizableImage:(UIEdgeInsets)edgeInsets resizingMode:(UIImageResizingMode)resizingMode
+- (UIImage *)qnm_resizableImage:(UIEdgeInsets)edgeInsets resizingMode:(UIImageResizingMode)resizingMode
 {
     //    edgeInsets.top < 1 ? edgeInsets.top = 12 : 0;
     //    edgeInsets.left  < 1 ? edgeInsets.left = 12 : 0;
@@ -108,13 +108,13 @@
     return image;
 }
 
-- (UIImage *)ldzf_stretchableImage:(NSInteger)left top:(NSInteger)top
+- (UIImage *)qnm_stretchableImage:(NSInteger)left top:(NSInteger)top
 {
     UIImage *image = [self stretchableImageWithLeftCapWidth:left topCapHeight:top];
     return image;
 }
 
-- (UIImage *)ldzf_imageChangeSize:(CGSize)newSize isScale:(BOOL)isScale
+- (UIImage *)qnm_imageChangeSize:(CGSize)newSize isScale:(BOOL)isScale
 {
     UIImage *newImage;
     if (isScale) {

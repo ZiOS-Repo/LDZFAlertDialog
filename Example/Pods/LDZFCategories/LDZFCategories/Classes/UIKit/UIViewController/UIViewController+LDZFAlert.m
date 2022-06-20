@@ -10,7 +10,7 @@
 @implementation UIViewController (LdzfAlert)
 
 #pragma mark - public
-- (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock
+- (void)qnm_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock
 {
     // 判断是否为空，避免return
     if (title == nil) {
@@ -89,18 +89,18 @@
         [self presentViewController:alertController animated:YES completion:nil];
     });
 }
-- (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock
+- (void)qnm_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock
 {
-    [self ldzf_showAlertControllerWithTitle:title message:message buttonTitles:btnTitleArr buttonColors:nil alertClick:clickBlock];
+    [self qnm_showAlertControllerWithTitle:title message:message buttonTitles:btnTitleArr buttonColors:nil alertClick:clickBlock];
 }
 
-- (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message alertClick:(LDZFAlertClickIndexBlock)clickBlock
+- (void)qnm_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message alertClick:(LDZFAlertClickIndexBlock)clickBlock
 {
-    [self ldzf_showAlertControllerWithTitle:title message:message buttonTitles:@[@"取消",@"确定"] buttonColors:nil alertClick:clickBlock];
+    [self qnm_showAlertControllerWithTitle:title message:message buttonTitles:@[@"取消",@"确定"] buttonColors:nil alertClick:clickBlock];
 }
 
 #pragma mark - Alert Sheet
-- (void)ldzf_showAlertSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
+- (void)qnm_showAlertSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
@@ -144,24 +144,24 @@
     });
 }
 
-- (void)ldzf_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
+- (void)qnm_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
 {
-    [self ldzf_showAlertSheetWithTitle:nil message:title buttonTitles:btnTitleArr buttonColors:btnColorArr alertClick:clickBlock alertCancle:cancleBlock];
+    [self qnm_showAlertSheetWithTitle:nil message:title buttonTitles:btnTitleArr buttonColors:btnColorArr alertClick:clickBlock alertCancle:cancleBlock];
 }
 
-- (void)ldzf_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
+- (void)qnm_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
 {
-    [self ldzf_showAlertSheetWithTitle:nil message:title buttonTitles:btnTitleArr buttonColors:nil alertClick:clickBlock alertCancle:cancleBlock];
+    [self qnm_showAlertSheetWithTitle:nil message:title buttonTitles:btnTitleArr buttonColors:nil alertClick:clickBlock alertCancle:cancleBlock];
 }
 
-- (void)ldzf_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
+- (void)qnm_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
 {
-    [self ldzf_showAlertSheetWithTitle:nil message:nil buttonTitles:btnTitleArr buttonColors:btnColorArr alertClick:clickBlock alertCancle:cancleBlock];
+    [self qnm_showAlertSheetWithTitle:nil message:nil buttonTitles:btnTitleArr buttonColors:btnColorArr alertClick:clickBlock alertCancle:cancleBlock];
 }
 
-- (void)ldzf_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr   alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
+- (void)qnm_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr   alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock
 {
-    [self ldzf_showAlertSheetWithTitle:nil message:nil buttonTitles:btnTitleArr buttonColors:nil alertClick:clickBlock alertCancle:cancleBlock];
+    [self qnm_showAlertSheetWithTitle:nil message:nil buttonTitles:btnTitleArr buttonColors:nil alertClick:clickBlock alertCancle:cancleBlock];
 }
 
 

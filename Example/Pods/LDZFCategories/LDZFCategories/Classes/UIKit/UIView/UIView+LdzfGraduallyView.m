@@ -8,11 +8,11 @@
 #import "UIView+LdzfGraduallyView.h"
 @implementation UIView (LdzfGraduallyView)
 
-- (void)ldzf_addGraduallyLayerWithStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
-    [self ldzf_addGraduallyLayerWithStartColor:startColor withendColor:endColor];
+- (void)qnm_addGraduallyLayerWithStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
+    [self qnm_addGraduallyLayerWithStartColor:startColor withendColor:endColor];
 }
 
-- (void)ldzf_addGraduallyLayer:(CGRect)frame withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
+- (void)qnm_addGraduallyLayer:(CGRect)frame withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
     for (CALayer *layer in self.layer.sublayers) {
         if ([layer isKindOfClass:[CAGradientLayer class]]) {
             [layer removeFromSuperlayer];
@@ -27,7 +27,7 @@
     [self.layer addSublayer:gradientLayer];
 }
 
-- (void)ldzf_addGradientLayer:(CGRect)frame withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
+- (void)qnm_addGradientLayer:(CGRect)frame withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
     for (CALayer *layer in self.layer.sublayers) {
         if ([layer isKindOfClass:[CAGradientLayer class]]) {
             [layer removeFromSuperlayer];
@@ -44,7 +44,7 @@
     [self.layer addSublayer:gradientLayer];
 }
 
-- (void)ldzf_addGradientBorderLayer:(CGRect)frame withBorderWidth:(CGFloat)borderWidth withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
+- (void)qnm_addGradientBorderLayer:(CGRect)frame withBorderWidth:(CGFloat)borderWidth withCornerRadius:(CGFloat)cornerRadius withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
     for (CALayer *layer in self.layer.sublayers) {
         if ([layer isKindOfClass:[CAGradientLayer class]]) {
             [layer removeFromSuperlayer];
@@ -68,7 +68,7 @@
     [self.layer addSublayer:maskLayer];
 }
 
-- (CAGradientLayer *)ldzf_graduallylayer {
+- (CAGradientLayer *)qnm_graduallylayer {
     CAGradientLayer *gradlayer;
     for (CALayer *layer in self.layer.sublayers) {
         if ([layer isKindOfClass:[CAGradientLayer class]]) {
@@ -79,7 +79,7 @@
     return gradlayer;
 }
 
-- (CAGradientLayer *)ldzf_achiveGraduallylayer
+- (CAGradientLayer *)qnm_achiveGraduallylayer
 {
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.locations = @[@0, @1.0];
@@ -88,7 +88,7 @@
     return gradientLayer;
 }
 
-- (void)ldzf_removeGradientLayer
+- (void)qnm_removeGradientLayer
 {
     for (CALayer *layer in self.layer.sublayers) {
         if ([layer isKindOfClass:[CAGradientLayer class]]) {

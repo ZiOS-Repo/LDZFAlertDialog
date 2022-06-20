@@ -13,17 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - General
 /// 屏幕快照
-- (UIImage *)ldzf_snapshot;
+- (UIImage *)qnm_snapshot;
 
 /// 屏幕快照生成pdf
-- (NSData *)ldzf_snapshotPDF;
+- (NSData *)qnm_snapshotPDF;
 
 /// 截取 view 上某个位置的图像
-- (UIImage *)ldzf_cutoutInViewWithRect:(CGRect)rect;
+- (UIImage *)qnm_cutoutInViewWithRect:(CGRect)rect;
 
 /// 毛玻璃效果
 /// @param blurStyle 模糊程度
-- (void)ldzf_addBlurEffectWith:(UIBlurEffectStyle)blurStyle;
+- (void)qnm_addBlurEffectWith:(UIBlurEffectStyle)blurStyle;
 
 #pragma mark - Draw
 
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param corner 圆角位置
  @param radius 圆角大小
  */
-- (void)ldzf_addRectCornerWithViewBounds:(CGRect)rect corner:(UIRectCorner)corner radius:(CGFloat)radius;
+- (void)qnm_addRectCornerWithViewBounds:(CGRect)rect corner:(UIRectCorner)corner radius:(CGFloat)radius;
 
 /**
  添加圆角,适用于已知frame，即非自动布局
@@ -42,14 +42,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param corner 圆角位置
  @param radius 圆角大小
  */
-- (void)ldzf_addRectCornerWith:(UIRectCorner)corner radius:(CGFloat)radius;
+- (void)qnm_addRectCornerWith:(UIRectCorner)corner radius:(CGFloat)radius;
 
 /**
  添加圆角，适用于已知frame，即非自动布局，圆角位置为UIRectCornerAllCorners
 
  @param radius 圆角大小
  */
-- (void)ldzf_addAllCornerWith:(CGFloat)radius;
+- (void)qnm_addAllCornerWith:(CGFloat)radius;
 
 /**
  添加圆角，适用于自动布局，传入设置frame，圆角位置为UIRectCornerAllCorners
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param rect 目标view的frame
  @param radius 圆角大小
  */
-- (void)ldzf_addAllCornerWithViewBounds:(CGRect)rect radius:(CGFloat)radius;
+- (void)qnm_addAllCornerWithViewBounds:(CGRect)rect radius:(CGFloat)radius;
 
 /**
  绘制虚线
@@ -68,10 +68,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param lineSpacing 虚线的间距
  @param lineColor 虚线的颜色
  */
-- (void)ldzf_drawDashLineWithpointArray:(NSArray *)pointArr lineWidth:(float)lineWidth lineLength:(float)lineLength lineSpacing:(float)lineSpacing lineColor:(UIColor *)lineColor;
+- (void)qnm_drawDashLineWithpointArray:(NSArray *)pointArr lineWidth:(float)lineWidth lineLength:(float)lineLength lineSpacing:(float)lineSpacing lineColor:(UIColor *)lineColor;
 
 
 
+// 获取view的父控制器
+- (UIViewController*)qnm_viewController;
 @end
 
 NS_ASSUME_NONNULL_END

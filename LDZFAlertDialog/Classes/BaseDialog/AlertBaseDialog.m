@@ -88,7 +88,7 @@
     }];
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
-    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.backgroundView.alpha = 1.0f ;
         [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view).offset(0);
@@ -98,7 +98,7 @@
 }
 
 - (void)hideContainerViewWithCompletion:(void (^)(BOOL))completion{
-    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.backgroundView.alpha = 0.0f ;
         [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view).offset(self.containerView.height);

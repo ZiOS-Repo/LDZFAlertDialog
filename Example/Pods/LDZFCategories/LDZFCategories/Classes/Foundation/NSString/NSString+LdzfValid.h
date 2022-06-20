@@ -12,29 +12,29 @@
 @interface NSString (LdzfValid)
 
 /// 检测字符串是否包含中文
-+( BOOL)ldzf_isContainChinese:(NSString *)str;
++( BOOL)qnm_isContainChinese:(NSString *)str;
 
 /// 整形
-+ (BOOL)ldzf_isPureInt:(NSString *)string;
++ (BOOL)qnm_isPureInt:(NSString *)string;
 
 /// 浮点型
-+ (BOOL)ldzf_isPureFloat:(NSString *)string;
++ (BOOL)qnm_isPureFloat:(NSString *)string;
 
 /// 有效的手机号码
-+ (BOOL)ldzf_isValidMobile:(NSString *)str;
++ (BOOL)qnm_isValidMobile:(NSString *)str;
 
 /// 纯数字
-+ (BOOL)ldzf_isPureDigitCharacters:(NSString *)string;
++ (BOOL)qnm_isPureDigitCharacters:(NSString *)string;
 
 /// 字符串为字母或者数字
-+ (BOOL)ldzf_isValidCharacterOrNumber:(NSString *)str;
++ (BOOL)qnm_isValidCharacterOrNumber:(NSString *)str;
 
 /// 判断字符串全是空格or空
-+ (BOOL)ldzf_isEmpty:(NSString *) str;
++ (BOOL)qnm_isEmpty:(NSString *) str;
 
 /// 是否是正确的邮箱
-+ (BOOL)ldzf_isValidEmail:(NSString *)email;
++ (BOOL)qnm_isValidEmail:(NSString *)email;
 
 /// 是否是正确的QQ
-+ (BOOL)ldzf_isValidQQ:(NSString *)qq;
++ (BOOL)qnm_isValidQQ:(NSString *)qq;
 @end

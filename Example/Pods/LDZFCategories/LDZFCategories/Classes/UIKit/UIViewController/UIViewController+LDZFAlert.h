@@ -27,13 +27,13 @@ typedef void(^LDZFAlertCancleBlock)(void);
 /// @param btnTitleArr 按钮标题数组
 /// @param btnColorArr 按钮颜色数组，传入1个颜色默认全部按钮为该颜色
 /// @param clickBlock 点击回调
-- (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock;
+- (void)qnm_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock;
 
 /// Alert系统提示，无colors
-- (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock;
+- (void)qnm_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock;
 
 /// Alert系统提示，无button，无colors，默认取消确定按钮
-- (void)ldzf_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message alertClick:(LDZFAlertClickIndexBlock)clickBlock;
+- (void)qnm_showAlertControllerWithTitle:(nullable id)title message:(nullable id)message alertClick:(LDZFAlertClickIndexBlock)clickBlock;
 
 #pragma mark - Alert Sheet
 /// AlertSheet系统提示，默认带取消按钮
@@ -43,19 +43,19 @@ typedef void(^LDZFAlertCancleBlock)(void);
 /// @param btnColorArr 按钮颜色数组
 /// @param clickBlock 点击回调
 /// @param cancleBlock 取消回调，为nil时不显示默认取消按钮
-- (void)ldzf_showAlertSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
+- (void)qnm_showAlertSheetWithTitle:(nullable NSString *)title message:(nullable NSString *)message buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
 
 /// AlertSheet系统提示，无message
-- (void)ldzf_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
+- (void)qnm_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
 
 /// AlertSheet系统提示，无message，无colors
-- (void)ldzf_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
+- (void)qnm_showAlertSheetWithTitle:(nullable NSString *)title buttonTitles:(NSArray *)btnTitleArr alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
 
 /// AlertSheet系统提示，无title，无message
-- (void)ldzf_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
+- (void)qnm_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr buttonColors:(nullable NSArray *)btnColorArr  alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
 
 /// AlertSheet系统提示，无title，无message，无colors
-- (void)ldzf_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr   alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
+- (void)qnm_showAlertSheetWithButtonTitles:(NSArray *)btnTitleArr   alertClick:(LDZFAlertClickIndexBlock)clickBlock alertCancle:(LDZFAlertCancleBlock)cancleBlock;
 
 @end
 

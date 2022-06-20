@@ -9,7 +9,7 @@
 
 @implementation NSBundle (LdzfPodBundle)
 
-+ (NSBundle *)ldzf_subBundle:(NSString *)bundleName podName:(NSString *)podName;
++ (NSBundle *)qnm_subBundle:(NSString *)bundleName podName:(NSString *)podName;
 {
     if (bundleName == nil || podName == nil) {
         return nil;

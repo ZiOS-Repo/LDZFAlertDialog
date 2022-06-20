@@ -4,6 +4,6 @@
 
 @interface CAShapeLayer (LdzfGeneral)
 
-+ (CAShapeLayer *)ldzf_shapeLayerWithFrame:(CGRect)frame corners:(UIRectCorner)corners radius:(CGFloat)radius;
++ (CAShapeLayer *)qnm_shapeLayerWithFrame:(CGRect)frame corners:(UIRectCorner)corners radius:(CGFloat)radius;
 
 @end

@@ -10,7 +10,7 @@
 @implementation NSDate (LdzfGeneral)
 
 // 字符串转为北京时间NSDate
-+ (NSDate *)ldzf_convertToBJDate:(NSString *)dateString {
++ (NSDate *)qnm_convertToBJDate:(NSString *)dateString {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     if (dateString.length == 8) {
         formatter.dateFormat = @"yyyyMMdd";
@@ -29,7 +29,7 @@
 }
 
 // 北京时间转换为字符串
-- (NSString *)ldzf_bjDateConvertToStringWithDateFormatter:(NSString *)dateFormatter {
+- (NSString *)qnm_bjDateConvertToStringWithDateFormatter:(NSString *)dateFormatter {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = dateFormatter;
     // 设置系统时区为本地时区
@@ -42,7 +42,7 @@
 }
 
 // 计算两个日期间隔天数
-+ (NSInteger)ldzf_calculateDayWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
++ (NSInteger)qnm_calculateDayWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSCalendarUnit unit = NSCalendarUnitDay;
     NSDateComponents *delta = [calendar components:unit fromDate:startDate toDate:endDate options:0];
@@ -50,7 +50,7 @@
 }
 
 // 距离date为n天的日期
-+ (NSDate *)ldzf_getDateFromDate:(NSDate *)date deltaDay:(NSInteger)deltaDay {
++ (NSDate *)qnm_getDateFromDate:(NSDate *)date deltaDay:(NSInteger)deltaDay {
     if (deltaDay == 0) {
         return date;
     }
@@ -59,7 +59,7 @@
 }
 
 // 获取距离date为N个月日日期
-+ (NSDate *)ldzf_getDateFromDate:(NSDate *)date deltaMonth:(NSInteger)deltaMonth {
++ (NSDate *)qnm_getDateFromDate:(NSDate *)date deltaMonth:(NSInteger)deltaMonth {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:date];
     dateComponents.month += 1;
@@ -71,7 +71,7 @@
 /// 判断当前时间是否在起止时间之间
 /// @param startStr 起始时间
 /// @param endStr 结束时间
-+ (BOOL)ldzf_judgeTimeByStartTime:(NSString *)startStr andEndTime:(NSString *)endStr
++ (BOOL)qnm_judgeTimeByStartTime:(NSString *)startStr andEndTime:(NSString *)endStr
 {
     //获取当前时间
     NSDate *today = [NSDate date];
