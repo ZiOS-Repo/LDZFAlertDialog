@@ -17,6 +17,16 @@ typedef NS_ENUM(NSInteger, LdzfTriangleDirection) { // 生成三角图片方向
 
 @interface UIImage (LdzfGenerate)
 
+#pragma mark - 生成渐变色的图片
+/// 生成渐变色的UIImage
+/// @param size 尺寸
+/// @param colors 颜色数组
+/// @param startP 开始坐标
+/// @param endP 结束坐标
++ (UIImage *)ldzf_gradientColorImageWithSize:(CGSize)size andColors:(NSArray *)colors startPoint:(CGPoint)startP endPoint:(CGPoint)endP;
+
+
+#pragma mark - 生成带圆角的颜色图片
 /**
  生成带圆角的颜色图片
 
@@ -44,20 +54,20 @@ typedef NS_ENUM(NSInteger, LdzfTriangleDirection) { // 生成三角图片方向
  */
 + (UIImage *)ldzf_cornerRadiusImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize cornerRadius:(CGFloat)cornerRadius;
 
-/// 生成渐变色的UIImage
-/// @param size 尺寸
-/// @param colors 颜色数组
-/// @param startP 开始坐标
-/// @param endP 结束坐标
-+ (UIImage*)ldzf_gradientColorImageWithSize:(CGSize)size andColors:(NSArray*)colors startPoint:(CGPoint)startP
-endPoint:(CGPoint)endP;
-
+#pragma mark - 生成三角图片
 /// 生成三角图片
 /// @param size 尺寸
 /// @param color 颜色
 /// @param direction 三角方向
 + (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LdzfTriangleDirection)direction;
 
+#pragma mark - 图片圆角处理
+- (UIImage *)ldzf_circleImageWithRadius:(CGFloat)radius;
+- (UIImage *)ldzf_circleImage;
+- (UIImage *)ldzf_circleHDImage;
+
+
+#pragma mark - 其他
 /// 从苹果表情符号创建图像
 /// @param emoji 表情符号
 /// @param size 尺寸
@@ -67,6 +77,7 @@ endPoint:(CGPoint)endP;
 /// @param size 尺寸
 /// @param drawBlock 绘制回调
 + (nullable UIImage *)ldzf_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock;
+
 
 
 @end

@@ -62,7 +62,7 @@
 		6D62717109206776D0BA7AA6 /* Pods_LDZFAlertDialog_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LDZFAlertDialog_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BF40EE3E227FD40A1F56173 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		7BFC8BF6FF64E705ECDE500F /* LDZFAlertDialog.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LDZFAlertDialog.podspec; path = ../LDZFAlertDialog.podspec; sourceTree = "<group>"; };
+		7BFC8BF6FF64E705ECDE500F /* LDZFAlertDialog.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LDZFAlertDialog.podspec; path = ../LDZFAlertDialog.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DA2F4313FC276C214D58E77 /* Pods-LDZFAlertDialog_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDZFAlertDialog_Example.debug.xcconfig"; path = "Target Support Files/Pods-LDZFAlertDialog_Example/Pods-LDZFAlertDialog_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AFEDDB162724F32B000BD770 /* TNTComponentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTComponentCell.m; sourceTree = "<group>"; };
@@ -307,31 +307,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LDZFAlertDialog_Example/Pods-LDZFAlertDialog_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFAlertDialog/LDZFAlertDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFCategories/LDZFCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFCommon/LDZFCommon.framework",
-				"${BUILT_PRODUCTS_DIR}/LDZFGeneralTools/LDZFGeneralTools.framework",
-				"${BUILT_PRODUCTS_DIR}/LDZFMobileFramework/LDZFMobileFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFPickerView/LDZFPickerView.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RegExCategories/RegExCategories.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFAlertDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFCommon.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFGeneralTools.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFMobileFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFPickerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RegExCategories.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

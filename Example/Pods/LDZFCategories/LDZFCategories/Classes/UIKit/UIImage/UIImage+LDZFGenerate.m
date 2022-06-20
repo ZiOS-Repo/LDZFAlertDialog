@@ -10,6 +10,36 @@
 
 @implementation UIImage (LdzfGenerate)
 
+#pragma mark - 生成渐变色的图片
++ (UIImage *)ldzf_gradientColorImageWithSize:(CGSize)size andColors:(NSArray *)colors startPoint:(CGPoint)startP endPoint:(CGPoint)endP;
+{
+    if (colors == nil || colors.count == 0) {
+        return nil;
+    }
+    NSMutableArray *ar = [NSMutableArray array];
+    
+    for(UIColor *c in colors) {
+        [ar addObject:(id)c.CGColor];
+    }
+    UIGraphicsBeginImageContextWithOptions(size, YES, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors lastObject] CGColor]);
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)ar, NULL);
+    CGPoint start = startP;
+    CGPoint end = endP;
+    
+    CGContextDrawLinearGradient(context, gradient, start, end, kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    CGGradientRelease(gradient);
+    CGContextRestoreGState(context);
+    CGColorSpaceRelease(colorSpace);
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+#pragma mark - 生成带圆角的颜色图片
+
 + (UIImage *)ldzf_cornerRadiusImageWithColor:(UIColor *)tintColor targetSize:(CGSize)targetSize corners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius backgroundColor:(UIColor *)backgroundColor
 {
     UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
@@ -43,43 +73,18 @@
 
     return finalImage;
 }
+
 + (UIImage *)ldzf_squareImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize
 {
     return [UIImage ldzf_cornerRadiusImageWithColor:color targetSize:targetSize corners:UIRectCornerAllCorners cornerRadius:0 backgroundColor:[UIColor whiteColor]];
 }
+
 + (UIImage *)ldzf_cornerRadiusImageWithColor:(UIColor *)color targetSize:(CGSize)targetSize cornerRadius:(CGFloat)cornerRadius
 {
     return [UIImage ldzf_cornerRadiusImageWithColor:color targetSize:targetSize corners:UIRectCornerAllCorners cornerRadius:cornerRadius backgroundColor:[UIColor whiteColor]];
 }
 
-+ (UIImage*)ldzf_gradientColorImageWithSize:(CGSize)size andColors:(NSArray*)colors startPoint:(CGPoint)startP
-endPoint:(CGPoint)endP
-{
-    if (colors == nil || colors.count == 0) {
-        return nil;
-    }
-    NSMutableArray *ar = [NSMutableArray array];
-    
-    for(UIColor *c in colors) {
-        [ar addObject:(id)c.CGColor];
-    }
-    UIGraphicsBeginImageContextWithOptions(size, YES, [UIScreen mainScreen].scale);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
-    CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors lastObject] CGColor]);
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)ar, NULL);
-    CGPoint start = startP;
-    CGPoint end = endP;
-    
-    CGContextDrawLinearGradient(context, gradient, start, end, kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    CGGradientRelease(gradient);
-    CGContextRestoreGState(context);
-    CGColorSpaceRelease(colorSpace);
-    UIGraphicsEndImageContext();
-    return image;
-}
-
+#pragma mark - 生成三角图片
 + (UIImage *)ldzf_triangleImageWithSize:(CGSize)size color:(UIColor *)color direction:(LdzfTriangleDirection)direction
 {
     size = CGSizeMake(size.width*[UIScreen mainScreen].scale, size.height*[UIScreen mainScreen].scale);
@@ -117,6 +122,51 @@ endPoint:(CGPoint)endP
     return newimg;
 }
 
+
+
+#pragma mark - Gradient
+- (UIImage *)ldzf_circleImageWithRadius:(CGFloat)radius
+{
+    UIGraphicsBeginImageContext(self.size);
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIBezierPath * bezierPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius];
+    [bezierPath addClip];
+    [self drawInRect:rect];
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+- (UIImage *)ldzf_circleImage
+{
+    UIGraphicsBeginImageContext(self.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    CGContextAddEllipseInRect(ctx, rect);
+    CGContextClip(ctx);
+    [self drawInRect:rect];
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+- (UIImage *)ldzf_circleHDImage
+{
+    CGFloat side = MIN(self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(self.size, false, [UIScreen mainScreen].scale);
+    CGContextAddPath(UIGraphicsGetCurrentContext(),
+                     [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, side, side)].CGPath);
+    CGContextClip(UIGraphicsGetCurrentContext());
+    CGFloat marginX = -(self.size.width - side) / 2.f;
+    CGFloat marginY = -(self.size.height - side) / 2.f;
+    [self drawInRect:CGRectMake(marginX, marginY, self.size.width, self.size.height)];
+    CGContextDrawPath(UIGraphicsGetCurrentContext(), kCGPathFillStroke);
+    UIImage *output = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return output;
+}
+
+#pragma mark - 其他
 + (nullable UIImage *)ldzf_imageWithEmoji:(NSString *)emoji size:(CGFloat)size
 {
     if (emoji.length == 0) return nil;
@@ -146,7 +196,8 @@ endPoint:(CGPoint)endP
     return image;
 }
 
-+ (UIImage *)ldzf_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock {
++ (UIImage *)ldzf_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock
+{
     if (!drawBlock) return nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -156,5 +207,7 @@ endPoint:(CGPoint)endP
     UIGraphicsEndImageContext();
     return image;
 }
+
+
 
 @end

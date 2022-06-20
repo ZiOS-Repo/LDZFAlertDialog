@@ -10,11 +10,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (LdzfGraduallyView)
-- (void)ldzf_addSimpleGraduallyLayer;
-- (void)ldzf_addGraduallyLayer:(CGRect)frame;
-- (void)ldzf_addGraduallyLayerWithStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor;
 
-- (void)ldzf_addGraduallyLayer:(CGRect)frame withStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor;
+- (void)ldzf_addGraduallyLayerWithStartColor:(UIColor *)startColor
+                                withendColor:(UIColor *)endColor;
+
+- (void)ldzf_addGraduallyLayer:(CGRect)frame
+                withStartColor:(UIColor *)startColor
+                  withendColor:(UIColor *)endColor;
 
 /// 添加渐变背景带圆角
 /// @param frame frame

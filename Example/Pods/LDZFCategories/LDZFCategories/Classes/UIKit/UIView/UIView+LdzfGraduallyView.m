@@ -6,16 +6,7 @@
 //
 
 #import "UIView+LdzfGraduallyView.h"
-#import "UIColor+Categorys.h"
 @implementation UIView (LdzfGraduallyView)
-- (void)ldzf_addSimpleGraduallyLayer {
-    
-    [self ldzf_addGraduallyLayer:self.bounds withStartColor:kHexColor(0xEEEEEE) withendColor:kHexColor(0xD8D8D8)];
-}
-
-- (void)ldzf_addGraduallyLayer:(CGRect)frame {
-    [self ldzf_addGraduallyLayer:frame withStartColor:kHexColor(0xEEEEEE) withendColor:kHexColor(0xD8D8D8)];
-}
 
 - (void)ldzf_addGraduallyLayerWithStartColor:(UIColor *)startColor withendColor:(UIColor *)endColor {
     [self ldzf_addGraduallyLayerWithStartColor:startColor withendColor:endColor];

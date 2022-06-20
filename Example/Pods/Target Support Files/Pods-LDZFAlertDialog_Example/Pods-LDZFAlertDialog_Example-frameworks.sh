@@ -176,30 +176,18 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFAlertDialog/LDZFAlertDialog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFCategories/LDZFCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFCommon/LDZFCommon.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LDZFGeneralTools/LDZFGeneralTools.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LDZFMobileFramework/LDZFMobileFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFPickerView/LDZFPickerView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RegExCategories/RegExCategories.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFAlertDialog/LDZFAlertDialog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFCategories/LDZFCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFCommon/LDZFCommon.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LDZFGeneralTools/LDZFGeneralTools.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LDZFMobileFramework/LDZFMobileFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LDZFPickerView/LDZFPickerView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RegExCategories/RegExCategories.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

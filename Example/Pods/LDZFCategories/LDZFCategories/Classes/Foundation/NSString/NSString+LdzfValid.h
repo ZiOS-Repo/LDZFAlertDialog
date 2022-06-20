@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//字符串是否为空
-#define kfStringIsEmpty(str) (str == nil || [str isKindOfClass:[NSNull class]] || ![str isKindOfClass:[NSString class]] || [str length] < 1 ? YES : NO )
-
-#define kfString(str) (kfStringIsEmpty(str) ? @"" : str )
 
 @interface NSString (LdzfValid)
 

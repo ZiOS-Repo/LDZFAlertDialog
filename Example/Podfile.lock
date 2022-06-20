@@ -1,103 +1,54 @@
 PODS:
-  - FDFullscreenPopGesture (1.1)
-  - LDZFAlertDialog (0.1.2):
-    - LDZFAlertDialog/BaseDialog (= 0.1.2)
-    - LDZFAlertDialog/DateDialog (= 0.1.2)
-    - LDZFAlertDialog/MultiChoiceDialog (= 0.1.2)
-    - LDZFAlertDialog/SingleChoiceDialog (= 0.1.2)
-  - LDZFAlertDialog/BaseDialog (0.1.2):
+  - LDZFAlertDialog (0.1.4):
+    - LDZFAlertDialog/BaseDialog (= 0.1.4)
+    - LDZFAlertDialog/DateDialog (= 0.1.4)
+    - LDZFAlertDialog/MultiChoiceDialog (= 0.1.4)
+    - LDZFAlertDialog/SingleChoiceDialog (= 0.1.4)
+  - LDZFAlertDialog/BaseDialog (0.1.4):
     - LDZFCategories
     - LDZFCommon
-    - LDZFGeneralTools
     - Masonry
-  - LDZFAlertDialog/DateDialog (0.1.2):
+  - LDZFAlertDialog/DateDialog (0.1.4):
     - LDZFAlertDialog/BaseDialog
-  - LDZFAlertDialog/MultiChoiceDialog (0.1.2):
+  - LDZFAlertDialog/MultiChoiceDialog (0.1.4):
     - LDZFAlertDialog/BaseDialog
-  - LDZFAlertDialog/SingleChoiceDialog (0.1.2):
+  - LDZFAlertDialog/SingleChoiceDialog (0.1.4):
     - LDZFAlertDialog/BaseDialog
     - LDZFPickerView
-  - LDZFCategories (0.1.21):
-    - LDZFCategories/Foundation (= 0.1.21)
-    - LDZFCategories/QuartzCore (= 0.1.21)
-    - LDZFCategories/UIKit (= 0.1.21)
-    - LDZFCategories/UnSure (= 0.1.21)
-  - LDZFCategories/Foundation (0.1.21)
-  - LDZFCategories/QuartzCore (0.1.21)
-  - LDZFCategories/UIKit (0.1.21)
-  - LDZFCategories/UnSure (0.1.21)
-  - LDZFCommon (0.1.10):
-    - QMUIKit/QMUICore
-  - LDZFGeneralTools (0.1.2):
-    - LDZFGeneralTools/DateFormatter (= 0.1.2)
-    - LDZFGeneralTools/DeepLinkModel (= 0.1.2)
-    - LDZFGeneralTools/FileManager (= 0.1.2)
-    - LDZFGeneralTools/IrregularElementsCreator (= 0.1.2)
-    - LDZFGeneralTools/JailBreakChecker (= 0.1.2)
-    - "LDZFGeneralTools/NSArray+IndexPath (= 0.1.2)"
-    - LDZFGeneralTools/NumberFormatter (= 0.1.2)
-    - LDZFGeneralTools/Permission (= 0.1.2)
-    - LDZFGeneralTools/RegEx (= 0.1.2)
-  - LDZFGeneralTools/DateFormatter (0.1.2)
-  - LDZFGeneralTools/DeepLinkModel (0.1.2)
-  - LDZFGeneralTools/FileManager (0.1.2)
-  - LDZFGeneralTools/IrregularElementsCreator (0.1.2)
-  - LDZFGeneralTools/JailBreakChecker (0.1.2)
-  - "LDZFGeneralTools/NSArray+IndexPath (0.1.2)"
-  - LDZFGeneralTools/NumberFormatter (0.1.2)
-  - LDZFGeneralTools/Permission (0.1.2)
-  - LDZFGeneralTools/RegEx (0.1.2):
-    - RegExCategories
-  - LDZFMobileFramework (0.1.20):
-    - FDFullscreenPopGesture
-    - LDZFCategories
-    - LDZFCommon
-    - Masonry
-    - MJRefresh
+  - LDZFCategories (0.1.23):
+    - LDZFCategories/Foundation (= 0.1.23)
+    - LDZFCategories/QuartzCore (= 0.1.23)
+    - LDZFCategories/UIKit (= 0.1.23)
+    - LDZFCategories/UnSure (= 0.1.23)
+  - LDZFCategories/Foundation (0.1.23)
+  - LDZFCategories/QuartzCore (0.1.23)
+  - LDZFCategories/UIKit (0.1.23)
+  - LDZFCategories/UnSure (0.1.23)
+  - LDZFCommon (0.2.2)
   - LDZFPickerView (0.1.0)
   - Masonry (1.1.0)
-  - MJRefresh (3.7.5)
-  - QMUIKit/QMUICore (4.1.3):
-    - QMUIKit/QMUILog
-    - QMUIKit/QMUIWeakObjectContainer
-  - QMUIKit/QMUILog (4.1.3)
-  - QMUIKit/QMUIWeakObjectContainer (4.1.3)
-  - RegExCategories (1.0)
 
 DEPENDENCIES:
   - LDZFAlertDialog (from `../`)
-  - LDZFMobileFramework
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - FDFullscreenPopGesture
     - LDZFCategories
     - LDZFCommon
-    - LDZFGeneralTools
-    - LDZFMobileFramework
     - LDZFPickerView
     - Masonry
-    - MJRefresh
-    - QMUIKit
-    - RegExCategories
 
 EXTERNAL SOURCES:
   LDZFAlertDialog:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  LDZFAlertDialog: a7df103d7863367b8fe5658e171e3dd732debef0
-  LDZFCategories: 4cc4a5c7c8565cd3642267506c32bfb05ad67d06
-  LDZFCommon: 75fcad1f16ebc1944f3f6ce45f0d5b9308af7129
-  LDZFGeneralTools: 005b7c8272a1c596793860ee6a46cd3910877690
-  LDZFMobileFramework: 0a5e61240edda0990171d97902b5c719861a15d8
+  LDZFAlertDialog: ebb784919b7b30eb6f9c62b079eeb591e7fcf853
+  LDZFCategories: b27ee8d25ee03f23dfa0234209526fbf2738cb0f
+  LDZFCommon: 235eba2151b8cb4773caf7ea71d42245b1279c3a
   LDZFPickerView: 81a4c57fb6f596a0a9d38cd3aefb635ae5ac68ad
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  QMUIKit: 1063a99f90aedd6e2dd65026ce0df46e6785e67b
-  RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
 
-PODFILE CHECKSUM: 525b887433d40d94020ae61a2c4fed7a51aa2dc9
+PODFILE CHECKSUM: 3f6b7debd76bd0e869ec450218105352846c1b3f
 
 COCOAPODS: 1.11.2

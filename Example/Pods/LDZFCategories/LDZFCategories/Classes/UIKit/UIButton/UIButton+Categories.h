@@ -11,5 +11,6 @@
 #import "UIButton+Event.h"
 #import "UIButton+Inits.h"
 #import "UIButton+Style.h"
+#import "UIButton+Enlarge.h"
 
 #endif /* UIButton_Categories_h */

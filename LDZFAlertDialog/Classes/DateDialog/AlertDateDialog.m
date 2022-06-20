@@ -2,71 +2,13 @@
 #import "AlertDateDialog.h"
 
 @interface AlertDateDialog ()
-@property(nonatomic, assign) BOOL isAnimating;
+
 @end
 
 @implementation AlertDateDialog
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-}
-
-// 1
-// 屏幕旋转时调用
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    if (self.isAnimating) {
-        
-    } else {
-        self.containerView.frame = CGRectMake(0,self.view.height - [self containerViewHeight], self.view.width, [self containerViewHeight]);
-    }
-}
-#pragma mark -
-#pragma mark - clickEvent
-
-- (void)clickCancel {
-    [self hideContainerView];
-}
-
-- (void)clickConfirm {
-    UIDatePicker *picker = self.picker;
-    NSMutableArray *items = [NSMutableArray array];
-    if (picker.date) {
-        [items addObject:picker.date];
-    }
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(baseDialog:didSelectedItems:)]) {
-        [self.delegate baseDialog:self didSelectedItems:items];
-    }
-    
-    [self hideContainerView];
-}
-
-- (void)showContainerView {
-    self.isAnimating = YES;
-    self.containerView.frame = CGRectMake(0,self.view.height, self.view.width,  [self containerViewHeight]);
-    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.backgroundView.alpha = 1.0f ;
-        self.containerView.y = self.view.height -  [self containerViewHeight];
-        
-    } completion:^(BOOL finished) {
-        self.isAnimating = NO;
-    }];
-}
-
-- (void)hideContainerView {
-    self.isAnimating = YES;
-    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        self.backgroundView.alpha = 0.0f ;
-        
-        self.containerView.y = self.view.height;
-        
-    } completion:^(BOOL finished) {
-        // 动画Animated必须是NO，不然消失之后，会有0.35s时间，再点击无效
-        [self dismissViewControllerAnimated:NO completion:nil];
-        self.isAnimating = NO;
-    }];
 }
 
 #pragma mark -
@@ -99,7 +41,11 @@
     cancelBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [topBarView addSubview:cancelBtn];
     [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(cancelBtn.superview).offset(12);
+        if (@available(iOS 11.0, *)) {
+            make.left.equalTo(cancelBtn.superview.mas_safeAreaLayoutGuideLeft).offset(12);
+        } else {
+            make.left.equalTo(cancelBtn.superview).offset(12);
+        }
         make.centerY.equalTo(cancelBtn.superview);
     }];
     [cancelBtn addTarget:self action:@selector(clickCancel) forControlEvents:UIControlEventTouchUpInside];
@@ -110,7 +56,11 @@
     confirmBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [topBarView addSubview:confirmBtn];
     [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(confirmBtn.superview).offset(-12);
+        if (@available(iOS 11.0, *)) {
+            make.right.equalTo(cancelBtn.superview.mas_safeAreaLayoutGuideRight).offset(-12);
+        } else {
+            make.right.equalTo(cancelBtn.superview).offset(-12);
+        }
         make.centerY.equalTo(confirmBtn.superview);
     }];
     [confirmBtn addTarget:self action:@selector(clickConfirm) forControlEvents:UIControlEventTouchUpInside];
@@ -160,11 +110,36 @@
 
 }
 
+
+#pragma mark -
+#pragma mark - clickEvent
+
+- (void)clickCancel {
+    [self dissMiss];
+}
+
+- (void)clickConfirm {
+    UIDatePicker *picker = self.picker;
+    NSMutableArray *items = [NSMutableArray array];
+    if (picker.date) [items addObject:picker.date];
+    self.dismissFlag = YES;
+    kWeakSelf
+    [self hideContainerViewWithCompletion:^(BOOL finished) {
+        kStrongSelf
+        strongSelf.dismissFlag = NO;
+        // 动画Animated必须是NO，不然消失之后，会有0.35s时间，再点击无效
+        [strongSelf dismissViewControllerAnimated:NO completion:nil];
+        if (strongSelf.didSelectedItems) {
+            strongSelf.didSelectedItems(strongSelf, items);
+        }
+    }];
+}
+
+
+
 #pragma mark - event
+- (void)didChangeRotateWithIsPortrait:(BOOL)isPortrait {
 
-
-
-#pragma mark - getter setter
-
+}
 
 @end

@@ -11,14 +11,22 @@
 
 #import "TNTComponentCell.h"
 
-@interface IUViewController ()<AlertBaseDialogDelegate>
+@interface IUViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property(nonatomic, strong, nullable) UITableView *recylerView;
 @property(nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation IUViewController
 
+- (void)dealloc {
+    NSLog(@"%s",__FUNCTION__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self ldzfInitSubviews];
+    
     self.dataSource = @[
         @{
             @"title": @"基础弹窗", @"data": @[
@@ -33,18 +41,49 @@
     ].mutableCopy;
     
     
-    
     // 步骤1：
     self.recylerView.rowHeight = UITableViewAutomaticDimension;
     // 步骤2：
     self.recylerView.estimatedRowHeight = 100.0;
 
 }
-#pragma mark - UITableViewDelegate
-//- (UITableViewStyle)preferredRecylerViewStyle {
-//    return UITableViewStyleGrouped;
-//}
 
+- (void)ldzfInitSubviews {
+    [self createTableViewWithStyle:UITableViewStylePlain];
+}
+
+
+- (void)createTableViewWithStyle:(UITableViewStyle)style {
+    [self createTableViewWithFrame:self.view.bounds style:style];
+}
+
+- (void)createTableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    [self createTableView:UITableView.class withFrame:frame style:style];
+}
+
+- (void)createTableView:(Class)viewClass withFrame:(CGRect)frame style:(UITableViewStyle)style {
+    [self.recylerView removeFromSuperview];
+    self.recylerView = nil;
+    self.recylerView = [self preferredRecylerView:viewClass withFrame:frame style:style];
+    [self.view addSubview:self.recylerView];
+    [self.recylerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.equalTo(self.recylerView.superview);
+    }];
+}
+
+#pragma mark - getter
+- (UITableView *)preferredRecylerView:(Class)viewClass withFrame:(CGRect)frame style:(UITableViewStyle)style {
+    UITableView *recylerView = [[viewClass alloc] initWithFrame:frame style:style];
+    recylerView.backgroundColor = [UIColor clearColor];
+    recylerView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    recylerView.showsVerticalScrollIndicator = NO;
+    recylerView.showsHorizontalScrollIndicator = NO;
+    recylerView.delegate = self;
+    recylerView.dataSource = self;
+    return recylerView;
+}
+
+#pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataSource.count;
 }
@@ -76,7 +115,12 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             AlertDateDialog *dialog = AlertDateDialog.build;
-            dialog.withInfo(@"请选择-开始时间").withDelegate(self).prepareFinish();
+            dialog.withInfo(@"请选择-开始时间");
+            [dialog setDidSelectedItems:^(AlertDateDialog *dialog, NSArray *items) {
+                NSLog(@"%@",items);
+                IUViewController *vc = [[IUViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
             [self presentViewController:dialog animated:NO completion:nil];
 
         }
@@ -86,8 +130,12 @@
                 [datas addObject:[NSString stringWithFormat:@"%d",i]];
             }
             AlertSingleChoiceDialog *dialog = AlertSingleChoiceDialog.build;
-            dialog.withInfo(@"请选择").withDelegate(self);
-            dialog.withSelectedItem(@"").withShowDatas(datas).prepareFinish();
+            dialog.withInfo(@"请选择").withSelectedItem(@"3").withShowDatas(datas);
+            [dialog setDidSelectedItems:^(AlertSingleChoiceDialog *dialog, NSArray *items) {
+                NSLog(@"%@",items);
+                IUViewController *vc = [[IUViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
             [self presentViewController:dialog animated:NO completion:nil];
 
         }
@@ -98,33 +146,21 @@
             }
             
             AlertMultiChoiceDialog *dialog = AlertMultiChoiceDialog.build;
-            dialog.withInfo(@"-请选择-").withDelegate(self);
-            dialog.withSelectedItem(@"4").withShowDatas(datas).prepareFinish();
+            dialog.withInfo(@"-请选择-").withSelectedItem(@"4").withShowDatas(datas);
+            [dialog setDialogWillShow:^(AlertBaseDialog *dialog) {
+                [((AlertMultiChoiceDialog *)dialog).disableItems addObject:@"3"];
+                [((AlertMultiChoiceDialog *)dialog).tableView reloadData];
+            }];
+            [dialog setDidSelectedItems:^(AlertMultiChoiceDialog *dialog, NSArray *items) {
+                NSLog(@"%@",items);
+                IUViewController *vc = [[IUViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
             [self presentViewController:dialog animated:NO completion:nil];
         }
     }
 }
 
-#pragma mark - AlertBaseDialogDelegate
-- (void)baseDialog:(AlertBaseDialog *)dialog didSelectedItems:(NSArray *)items {
-    if (items) {
-        NSLog(@"%@",[NSString stringWithFormat:@"%@",items]);
-    }
-}
-
-- (void)baseDialogWillShow:(AlertBaseDialog *)dialog {
-    if ([dialog isKindOfClass:AlertMultiChoiceDialog.class]) {
-        [((AlertMultiChoiceDialog *)dialog).disableItems addObject:@"3"];
-        [((AlertMultiChoiceDialog *)dialog).tableView reloadData];
-    }
-}
-
-//- (void)baseDialogDidShow:(CRJAlertBaseDialog *)dialog {
-//    if ([dialog isKindOfClass:CRJMultiChoiceDialog.class]) {
-//        [((CRJMultiChoiceDialog *)dialog).disableDatas addObject:@"3"];
-//        [((CRJMultiChoiceDialog *)dialog).tableView reloadData];
-//    }
-//}
 
 
 @end

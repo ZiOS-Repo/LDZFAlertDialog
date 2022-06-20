@@ -2,57 +2,65 @@
 #import <UIKit/UIKit.h>
 #import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
-#import <LDZFGeneralTools/LDZFGeneralTools.h>
 #import <Masonry/Masonry.h>
+
 NS_ASSUME_NONNULL_BEGIN
-@class AlertBaseDialog;
+@interface AlertBaseDialog : UIViewController
+#pragma mark - 视图容器
+@property(nonatomic, strong, readonly) UIView *backgroundView;
+@property(nonatomic, strong, readonly) UIView *containerView;
 
-@protocol AlertBaseDialogDelegate <NSObject>
+#pragma mark - 参数
+@property(nonatomic, assign) NSInteger tag;
+@property(nonatomic, strong) id info;
+@property(nonatomic, strong) id picker;
+@property(nonatomic, strong) id selectedItem;// 选中内容,可能是数组,可能是一个对象
+@property(nonatomic, strong) NSArray *showDatas;// 显示内容的数据
+@property(nonatomic, weak) id object;// weak对象
 
-@optional
-- (void)baseDialogWillShow:(AlertBaseDialog *)dialog;
-- (void)baseDialogDidShow:(AlertBaseDialog *)dialog;
-- (void)baseDialogWillHide:(AlertBaseDialog *)dialog;
-- (void)baseDialogDidHide:(AlertBaseDialog *)dialog;
-- (void)baseDialog:(AlertBaseDialog *)dialog didSelectedItems:(NSArray *)items;
-- (void)baseDialog:(AlertBaseDialog *)dialog didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+#pragma mark - 回调
+@property(nonatomic, copy) void (^dialogWillShow)(AlertBaseDialog *dialog);
+@property(nonatomic, copy) void (^dialogDidShow)(AlertBaseDialog *dialog);
+@property(nonatomic, copy) void (^dialogWillHide)(AlertBaseDialog *dialog);
+@property(nonatomic, copy) void (^dialogDidHide)(AlertBaseDialog *dialog);
+
+
+#pragma mark - ContainerView相关
+@property(nonatomic, assign) BOOL showFlag;
+@property(nonatomic, assign) BOOL dismissFlag;
+
+- (CGFloat)containerViewHeight;
+- (void)showContainerViewWithCompletion:(nullable void (^)(BOOL finished))completion;
+- (void)hideContainerViewWithCompletion:(nullable void (^)(BOOL finished))completion;
+- (void)dissMiss;
+
 
 @end
 
-@interface AlertBaseDialog : UIViewController
-@property(nonatomic, assign) NSInteger tag;
-@property(nonatomic, strong) id picker;
-// weak对象
-@property(nonatomic, weak) id object;
-// 代理
-@property(nonatomic, weak) id <AlertBaseDialogDelegate>delegate;
-// 信息数据
-@property(nonatomic, strong) id info;
-// 选中内容,可能是数组,可能是一个对象
-@property(nonatomic, strong) id selectedItem;
-// 显示内容的数据
-@property(nonatomic, strong) NSArray *showDatas;
 
+#pragma mark - 屏幕旋转发生回调
+@interface AlertBaseDialog(ScreenRotate)
+/// 屏幕旋转事件
+/// @param isPortrait YES 竖屏，NO 横屏
+- (void)didChangeRotateWithIsPortrait:(BOOL)isPortrait;
+@end
+
+
+#pragma mark - 工具
+@interface AlertBaseDialog(Utils)
 - (UIImage *)imageFromCustomBundle:(NSString *)name;
+@end
 
-- (CGFloat)containerViewHeight;
-#pragma mark - 视图容器
-@property(nonatomic, strong) UIView *backgroundView;
-@property(nonatomic, strong) UIView *containerView;
-- (void)showContainerView;
-- (void)hideContainerView;
 
 #pragma mark - Chain Programming.
-
+@interface AlertBaseDialog(ChainProgramming)
 + (instancetype)build;
 - (AlertBaseDialog *(^)(NSInteger tag))withTag;
 - (AlertBaseDialog *(^)(id object))withObject;
-- (AlertBaseDialog *(^)(id <AlertBaseDialogDelegate> delegate))withDelegate;
 - (AlertBaseDialog *(^)(id info))withInfo;
 - (AlertBaseDialog *(^)(id selectedItem))withSelectedItem;
 - (AlertBaseDialog *(^)(NSArray *showDatas))withShowDatas;
-- (AlertBaseDialog *(^)(void))prepareFinish;//最后调用！！！
-
 @end
+
 
 NS_ASSUME_NONNULL_END

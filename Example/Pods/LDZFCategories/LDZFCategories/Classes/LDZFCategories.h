@@ -22,10 +22,8 @@
 //UIKit
 #import "UIView+Categorys.h"
 #import "UIImage+Categorys.h"
-#import "UIColor+Categorys.h"
 #import "UIButton+Categories.h"
 
-#import "UIDevice+LdzfGeneral.h"
 #import "UILabel+LdzfGeneral.h"
 #import "UIScrollView+LdzfGeneral.h"
 #import "UIViewController+LdzfAlert.h"

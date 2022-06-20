@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LDZFAlertDialog'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'A short description of LDZFAlertDialog.'
 
 # This description is used to generate tags and improve search results.
@@ -49,7 +49,6 @@ TODO: Add long description of the pod here.
   s.subspec 'BaseDialog' do |ss|
     ss.source_files = 'LDZFAlertDialog/**/BaseDialog/*.{h,m}'
     ss.dependency 'LDZFCategories'
-    ss.dependency 'LDZFGeneralTools'
     ss.dependency 'LDZFCommon'
     ss.dependency 'Masonry'
   end

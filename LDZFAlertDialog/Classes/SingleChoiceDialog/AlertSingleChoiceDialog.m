@@ -17,60 +17,6 @@ static NSString *identifier = @"cell";
     [self setupUI];
 }
 
-// 1
-// 屏幕旋转时调用
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    if (self.isAnimating) {
-        
-    } else {
-        self.containerView.frame = CGRectMake(0,self.view.height - [self containerViewHeight], self.view.width, [self containerViewHeight]);
-
-    }
-}
-
-
-#pragma mark -
-#pragma mark - clickEvent
-
-- (void)clickCancel {
-    [self hideContainerView];
-}
-
-- (void)clickConfirm {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(baseDialog:didSelectedItems:)]) {
-        NSInteger selectedIndex = [_pickerView.pickView selectedRowInComponent:0];
-        [self.delegate baseDialog:self didSelectedItems:@[self.showDatas[selectedIndex]]];
-    }
-    [self hideContainerView];
-}
-
-- (void)showContainerView {
-    self.isAnimating = YES;
-    self.containerView.frame = CGRectMake(0,self.view.height, self.view.width, [self containerViewHeight]);
-    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.backgroundView.alpha = 1.0f ;
-        self.containerView.y = self.view.height - [self containerViewHeight];
-        
-    } completion:^(BOOL finished) {
-        self.isAnimating = NO;
-    }];
-}
-
-- (void)hideContainerView {
-    self.isAnimating = YES;
-    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.95 initialSpringVelocity:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        self.backgroundView.alpha = 0.0f ;
-        
-        self.containerView.y = self.view.height;
-        
-    } completion:^(BOOL finished) {
-        // 动画Animated必须是NO，不然消失之后，会有0.35s时间，再点击无效
-        [self dismissViewControllerAnimated:NO completion:nil];
-        self.isAnimating = NO;
-    }];
-}
 
 #pragma mark -
 #pragma mark - UI
@@ -103,7 +49,11 @@ static NSString *identifier = @"cell";
     cancelBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [topBarView addSubview:cancelBtn];
     [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(cancelBtn.superview).offset(12);
+        if (@available(iOS 11.0, *)) {
+            make.left.equalTo(cancelBtn.superview.mas_safeAreaLayoutGuideLeft).offset(12);
+        } else {
+            make.left.equalTo(cancelBtn.superview).offset(12);
+        }
         make.centerY.equalTo(cancelBtn.superview);
     }];
     [cancelBtn addTarget:self action:@selector(clickCancel) forControlEvents:UIControlEventTouchUpInside];
@@ -114,7 +64,11 @@ static NSString *identifier = @"cell";
     confirmBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [topBarView addSubview:confirmBtn];
     [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(confirmBtn.superview).offset(-12);
+        if (@available(iOS 11.0, *)) {
+            make.right.equalTo(cancelBtn.superview.mas_safeAreaLayoutGuideRight).offset(-12);
+        } else {
+            make.right.equalTo(cancelBtn.superview).offset(-12);
+        }
         make.centerY.equalTo(confirmBtn.superview);
     }];
     [confirmBtn addTarget:self action:@selector(clickConfirm) forControlEvents:UIControlEventTouchUpInside];
@@ -161,6 +115,33 @@ static NSString *identifier = @"cell";
         
         [_pickerView selectRow:index inComponent:0 animated:NO];
     }
+}
+
+
+
+
+#pragma mark -
+#pragma mark - clickEvent
+
+- (void)clickCancel {
+    [self dissMiss];
+}
+
+- (void)clickConfirm {
+    self.dismissFlag = YES;
+    kWeakSelf
+    [self hideContainerViewWithCompletion:^(BOOL finished) {
+        kStrongSelf
+        strongSelf.dismissFlag = NO;
+        // 动画Animated必须是NO，不然消失之后，会有0.35s时间，再点击无效
+        [strongSelf dismissViewControllerAnimated:NO completion:nil];
+        if (strongSelf.didSelectedItems) {
+            NSInteger selectedIndex = [strongSelf->_pickerView.pickView selectedRowInComponent:0];
+            if (selectedIndex < strongSelf.showDatas.count) {
+                strongSelf.didSelectedItems(strongSelf, @[strongSelf.showDatas[selectedIndex]]);
+            }
+        }
+    }];
 }
 
 #pragma mark - LdzfPickerViewDelegate

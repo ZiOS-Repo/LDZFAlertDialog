@@ -14,9 +14,9 @@
 - (NSString *)ldzf_removeBothEndsWhitespace;
 /// 消除收尾空格+换行符
 - (NSString *)ldzf_removeBothEndsWhitespaceAndNewline;
-// 消除收尾空格
+/// 消除收尾空格
 - (NSString *)ldzf_trimWhitespace;
-// 消除所有空格
+/// 消除所有空格
 - (NSString *)ldzf_trimAllWhitespace;
 
 #pragma mark - 字符串查找.
