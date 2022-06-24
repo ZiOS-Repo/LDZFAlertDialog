@@ -16,18 +16,26 @@
 
 @implementation AlertSingleChoiceDialogRowView
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.label.frame = self.bounds;
+}
+
+
 - (void)buildSubView {
-    
-    self.label = [UILabel new];
+    self.label = [[UILabel alloc] init];
+    self.label.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.label];
 }
 
 - (void)loadContent {
-    
-    self.label.text = self.data;
+    if ([self.data isKindOfClass:NSString.class]) {
+        self.label.text = self.data;
+    }
+    else if ([self.data isKindOfClass:NSAttributedString.class]) {
+        self.label.attributedText = self.data;
+    }
     [self.label sizeToFit];
-    
-    self.label.center = self.middlePoint;
 }
 
 @end

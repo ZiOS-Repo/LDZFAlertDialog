@@ -114,7 +114,18 @@ static NSString *identifier = @"cell";
         }];
         
         [_pickerView selectRow:index inComponent:0 animated:NO];
+    } else if (self.selectedItem && [self.selectedItem isKindOfClass:[NSString class]]) {
+        __block NSInteger index = 0;
+        [self.showDatas enumerateObjectsUsingBlock:^(NSString *string, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([string isEqualToString:self.selectedItem]) {
+                index = idx;
+                *stop = YES;
+            }
+        }];
+        
+        [_pickerView selectRow:index inComponent:0 animated:NO];
     }
+
 }
 
 
