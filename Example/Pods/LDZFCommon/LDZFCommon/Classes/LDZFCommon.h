@@ -10,7 +10,6 @@
 #define LDZFCommon_h
 #import "LdzfCommonlyDefine.h"
 #import "LdzfDataType.h"
-#import "LdzfUIHelper.h"
-#import "LdzfDeviceInfo.h"
+#import <QMUIKit/QMUIKit.h>
 
 #endif /* LDZFCommon_h */

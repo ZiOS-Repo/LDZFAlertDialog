@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LDZFAlertDialog'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'A short description of LDZFAlertDialog.'
 
 # This description is used to generate tags and improve search results.
@@ -39,34 +39,49 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.public_header_files = 'LDZFAlertDialog/**/LDZFAlertDialog.h'
-  s.source_files = 'LDZFAlertDialog/**/LDZFAlertDialog.h'
-  s.resource_bundles = {
-    'LDZFAlertDialog' => ['LDZFAlertDialog/Assets/*'],
-    'LDZFAlertDialogExt' => ['LDZFAlertDialog/AssetsExt/*']
-  }
+  s.public_header_files = 'LDZFAlertDialog/LDZFAlertDialog.h'
+  s.source_files = 'LDZFAlertDialog/LDZFAlertDialog.h'
+
+  
+  s.subspec 'LDZFAlertDialogResources' do |ss|
+    ss.resource_bundles = {
+      'LDZFAlertDialogResources' => ['LDZFAlertDialog/Resources/*.*'],
+    }
+    ss.pod_target_xcconfig = {
+      'EXPANDED_CODE_SIGN_IDENTITY' => '',
+      'CODE_SIGNING_REQUIRED' => 'NO',
+      'CODE_SIGNING_ALLOWED' => 'NO',
+    }
+  end
     
+    
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'LDZFAlertDialog/LDZFAlertDialog.h'
+  end
+  
   s.subspec 'BaseDialog' do |ss|
-    ss.source_files = 'LDZFAlertDialog/**/BaseDialog/*.{h,m}'
+    ss.source_files = 'LDZFAlertDialog/BaseDialog/*.{h,m}'
+    ss.dependency 'LDZFAlertDialog/Core'
     ss.dependency 'LDZFCategories'
     ss.dependency 'LDZFCommon'
     ss.dependency 'Masonry'
   end
   
   s.subspec 'DateDialog' do |ss|
-    ss.source_files = 'LDZFAlertDialog/**/DateDialog/*.{h,m}'
+    ss.source_files = 'LDZFAlertDialog/DateDialog/*.{h,m}'
     ss.dependency 'LDZFAlertDialog/BaseDialog'
   end
   
   s.subspec 'SingleChoiceDialog' do |ss|
-    ss.source_files = 'LDZFAlertDialog/**/SingleChoiceDialog/*.{h,m}'
+    ss.source_files = 'LDZFAlertDialog/SingleChoiceDialog/*.{h,m}'
     ss.dependency 'LDZFAlertDialog/BaseDialog'
     ss.dependency 'LDZFPickerView'
   end
   
   s.subspec 'MultiChoiceDialog' do |ss|
-    ss.source_files = 'LDZFAlertDialog/**/MultiChoiceDialog/*.{h,m}'
+    ss.source_files = 'LDZFAlertDialog/MultiChoiceDialog/*.{h,m}'
     ss.dependency 'LDZFAlertDialog/BaseDialog'
+    ss.dependency 'LDZFAlertDialog/LDZFAlertDialogResources'
   end
   
 

@@ -46,11 +46,16 @@ BOOL isStringEmptyOrNil(id obj) {
  @return 对象不存在 或不是 NSString 类型 或没有数据 或为 nil: 空字符串, 其他情况: 原值
  */
 NSString* safeString(id obj) {
-    if (isStringEmptyOrNil(obj)) {
-        return @"";
-    } else {
-        return obj;
+    if (obj && (NSNull *)obj != [NSNull null]) {
+        if ([obj isKindOfClass:[NSString class]]) {
+            return obj;
+        } else if ([obj isKindOfClass:[NSNumber class]]) {
+            return [obj stringValue];
+        } else if([obj isKindOfClass:[NSObject class]]){
+            return [obj description];
+        }
     }
+    return @"";
 }
 
 #pragma mark - NSArray
@@ -83,20 +88,6 @@ BOOL isArrayEmptyOrNil(id obj) {
     }
 }
 
-/**
- 判断对象是否存在, 是否为 NSArray 类型, 是否有数据
-
- @param obj 要判断的对象
- @return 对象不存在 或不是 NSArray 类型 或数组为空 或为nil: 空数组, 其他情况: 原值
- */
-NSArray* safeArray(id obj) {
-    if (isArrayEmptyOrNil(obj)) {
-        return @[];
-    } else {
-        return obj;
-    }
-}
-
 
 #pragma mark - NSDictionary
 
@@ -125,19 +116,6 @@ BOOL isDictEmptyOrNil(id obj) {
         return YES;
     } else {
         return NO;
-    }
-}
-/**
- 判断对象是否存在, 是否为 NSDictionary 类型, 是否有数据
-
- @param obj 要判断的对象
- @return 对象不存在 或不是 NSDictionary 类型 或字典为空 或为 nil: 空字典, 其他情况: 原值
- */
-NSDictionary* safeDict(id obj) {
-    if (isDictEmptyOrNil(obj)) {
-        return @{};
-    } else {
-        return obj;
     }
 }
 

@@ -12,6 +12,7 @@
 
 #import "LDZFAlertDialog.h"
 #import "AlertBaseDialog.h"
+#import "LDZFAlertDialog.h"
 #import "AlertDateDialog.h"
 #import "AlertMultiChoiceDialog.h"
 #import "AlertMultiChoiceDialogCell.h"
